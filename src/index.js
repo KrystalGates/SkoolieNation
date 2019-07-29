@@ -8,4 +8,3 @@ ReactDOM.render(
         <SkoolieNation />
     </Router>
     , document.getElementById('root'))
-

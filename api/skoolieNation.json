@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "user_name": "mom",
+      "email": "mom@hotmail.com",
+      "password": "mom",
+      "id": 1
+    },
+    {
+      "user_name": "yo",
+      "email": "yo",
+      "password": "yo",
+      "id": 2
+    },
+    {
+      "user_name": "yoy",
+      "email": "yoy",
+      "password": "yo",
+      "id": 3
+    },
+    {
+      "user_name": "hey",
+      "email": "hey",
+      "password": "hey",
+      "id": 4
+    },
+    {
+      "user_name": "hey0",
+      "email": "hey0",
+      "password": "hey",
+      "id": 5
+    }
+  ]
+}

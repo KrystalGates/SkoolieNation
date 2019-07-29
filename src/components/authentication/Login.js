@@ -71,7 +71,6 @@ export default class Login extends Component {
                             <Form.Input onChange={this.handleFieldChange} id="user_name" icon="user" iconPosition="left" label="Username" placeholder="Username" />
                             <Form.Input onChange={this.handleFieldChange} id="email" icon="user" iconPosition="left" label="Email" placeholder="Email" />
                             <Form.Input onChange={this.handleFieldChange} id="password" icon="lock" iconPosition="left" label="Password" type="password" />
-                            <Form.Input onChange={this.handleFieldChange} id="aboutMe" icon="lock" iconPosition="left" label="About your Skoolie" type="textarea" />
                             <Button content="Register" primary />
                         </Form>
                     </Modal.Content>
