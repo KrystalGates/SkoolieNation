@@ -13,4 +13,3 @@ export default class SkoolieNation extends Component {
             )
     }
 }
-
