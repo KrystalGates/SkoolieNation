@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Modal, Form, Button} from "semantic-ui-react"
 import ApiManager from '../../../modules/ApiManager';
+import CharacterCounter from 'react-character-counter'
 
 
 export default class AboutMeEdit extends Component {
@@ -59,7 +60,9 @@ export default class AboutMeEdit extends Component {
             <Modal.Header>About My Skoolie</Modal.Header>
             <Modal.Content>
                 <Form onSubmit={this.updateAboutMe}>
-                    <Form.TextArea onChange={this.handleFieldChange} id="aboutMe" label='About My Skoolie' value={this.state.aboutMe} />
+                <CharacterCounter value={this.state.aboutMe} maxLength={350} >
+                    <Form.TextArea maxLength="350" onChange={this.handleFieldChange} id="aboutMe" label='About My Skoolie' value={this.state.aboutMe} />
+                </CharacterCounter>
                     <Button content='Save' primary />
                 </Form>
             </Modal.Content>
