@@ -4,9 +4,11 @@ import { Button, Divider, Form, Grid, Segment, Modal } from "semantic-ui-react"
 export default class Login extends Component {
 
     state = {
-       user_name: "",
+       username: "",
        email: "",
-       password: ""
+       password: "",
+       aboutMe: "",
+       imgUrl: null
     }
 
     handleFieldChange = (event) => {
@@ -17,10 +19,10 @@ export default class Login extends Component {
 
     handleLogin = (event) => {
         event.preventDefault()
-        if(this.state.user_name === "" || this.state.password === ""){
+        if(this.state.username === "" || this.state.password === ""){
             alert("Please fill in username and password")
         }
-        let userMatch = this.props.users.find(user =>(user.user_name === this.state.user_name && user.password === this.state.password))
+        let userMatch = this.props.users.find(user =>(user.username === this.state.username && user.password === this.state.password))
         if(userMatch !== undefined){
             sessionStorage.setItem("currentUser", userMatch.id)
             this.props.history.push("/")
@@ -34,14 +36,14 @@ export default class Login extends Component {
     handleRegister = (event) => {
         event.preventDefault()
         let userMatch = this.props.users.filter(user =>
-            (user.user_name === this.state.user_name || user.email === this.state.email))
-        if(this.state.user_name === "" || this.state.password === "" || this.state.email === ""){
+            (user.username === this.state.username || user.email === this.state.email))
+        if(this.state.username === "" || this.state.password === "" || this.state.email === ""){
             alert("Please fill in username, email, and password")
         }
         else if(userMatch.length === 0){
             this.props.addUser(this.state, "users")
                 .then( event => {
-                    let newUserMatch = this.props.users.filter(user => (user.user_name === this.state.user_name))
+                    let newUserMatch = this.props.users.filter(user => (user.username === this.state.username))
                     sessionStorage.setItem("currentUser", newUserMatch[0].id)
                     this.props.history.push("/")
                 })
@@ -56,7 +58,7 @@ export default class Login extends Component {
                 <Grid columns={2} relaxed="very" stackable>
                 <Grid.Column>
                     <Form onSubmit={this.handleLogin}>
-                    <Form.Input onChange={this.handleFieldChange} id="user_name" icon="user" iconPosition="left" label="Username" placeholder="Username" />
+                    <Form.Input onChange={this.handleFieldChange} id="username" icon="user" iconPosition="left" label="Username" placeholder="Username" />
                     <Form.Input onChange={this.handleFieldChange} id="password" icon="lock" iconPosition="left" label="Password" type="password" />
 
                     <Button content="Login" primary />
@@ -68,9 +70,11 @@ export default class Login extends Component {
                     <Modal.Header>Register</Modal.Header>
                     <Modal.Content>
                         <Form onSubmit={this.handleRegister}>
-                            <Form.Input onChange={this.handleFieldChange} id="user_name" icon="user" iconPosition="left" label="Username" placeholder="Username" />
+                            <Form.Input onChange={this.handleFieldChange} id="username" icon="user" iconPosition="left" label="Username" placeholder="Username" />
                             <Form.Input onChange={this.handleFieldChange} id="email" icon="user" iconPosition="left" label="Email" placeholder="Email" />
                             <Form.Input onChange={this.handleFieldChange} id="password" icon="lock" iconPosition="left" label="Password" type="password" />
+                            <Form.Input onChange={this.handleFieldChange} id="aboutMe" icon="lock" iconPosition="left" label="About my Skoolie" type="textarea" />
+                            <Button content='Register' primary />
                         </Form>
                     </Modal.Content>
         </Modal>
