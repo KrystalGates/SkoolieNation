@@ -63,7 +63,8 @@ export default class ApplicationViews extends Component {
                <Route
             exact path="/" render={props =>{
               if(this.isAuthenticated()){
-                return <Profile {...props} users={this.state.users}
+                let user = this.state.users.filter(user => user.id === parseInt(sessionStorage.getItem("currentUser")))
+                return <Profile {...props} user={user}
                 />
             }else {
               return <Redirect to="./login" />;
