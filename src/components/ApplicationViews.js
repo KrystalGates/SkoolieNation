@@ -29,30 +29,30 @@ export default class ApplicationViews extends Component {
             .then(() => this.setState(newState));
           }
 
-      addToApi = (item, resource) =>
-      ApiManager.post(item, resource)
-     .then(() => ApiManager.all(resource))
-     .then(item =>{
+      addToApi = (obj, entity) =>
+      ApiManager.post(obj, entity)
+     .then(() => ApiManager.all(entity))
+     .then(obj =>{
          this.setState({
-         [resource]: item
+         [entity]: obj
        })
      }
      );
 
-     deleteFromApi = (item, resource) =>
-     ApiManager.delete(item, resource)
-       .then(ApiManager.all(resource))
-       .then(item => {
+     deleteFromApi = (obj, entity) =>
+     ApiManager.delete(obj, entity)
+       .then(ApiManager.all(entity))
+       .then(obj => {
         //  this.props.history.push("/");
-         this.setState({ [resource]: item });
+         this.setState({ [entity]: obj });
        });
 
-       updateApi = (item, resource) => {
-        return ApiManager.put(item, resource)
-          .then(() => ApiManager.all(resource))
-          .then(item => {
+       updateApi = (obj, entity) => {
+        return ApiManager.put(obj, entity)
+          .then(() => ApiManager.all(entity))
+          .then(obj => {
             this.setState({
-              [resource]: item
+              [entity]: obj
             });
           });
       };
@@ -64,7 +64,7 @@ export default class ApplicationViews extends Component {
             exact path="/" render={props =>{
               if(this.isAuthenticated()){
                 let user = this.state.users.filter(user => user.id === parseInt(sessionStorage.getItem("currentUser")))
-                return <Profile {...props} user={user}
+                return <Profile {...props} user={user} updateApi={this.updateApi}
                 />
             }else {
               return <Redirect to="./login" />;
