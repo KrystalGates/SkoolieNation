@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 
-const CLOUDINARY_UPLOAD_PRESET = 'buskk0uu';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dnujayk9c/image/upload';
+const CLOUDINARY_UPLOAD_PRESET = '';
+const CLOUDINARY_UPLOAD_URL = '';
 
 export default class PhotoUpload extends Component {
     state = {
