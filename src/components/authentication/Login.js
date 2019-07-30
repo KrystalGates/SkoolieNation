@@ -57,8 +57,16 @@ export default class Login extends Component {
         return ref
         .put(this.state.imgUrl)
         .then(data => data.ref.getDownloadURL())
-        .then(imageUrl => this.setState({ imgUrl: imageUrl }))
-        .then(this.props.addUser(this.state, "users"))
+        .then(imageUrl => {
+            return this.props.addUser({
+              username: this.state.username,
+              email: this.state.email,
+              password: this.state.password,
+              aboutMe: this.state.aboutMe,
+              imgUrl: imageUrl
+            }, "users")
+          }
+          )
         .then(event => {
           let newUserMatch = this.props.users.filter(
             user => user.username === this.state.username
@@ -70,21 +78,6 @@ export default class Login extends Component {
       alert("Username or email is already in use.");
     }
   };
-  //   submitForm = () => {
-  //     const ref = this.storageRef.child(this.state.username);
-
-  //     return ref
-  //       .put(this.state.photo)
-  //       .then(data => data.ref.getDownloadURL())
-  //       .then(imageUrl => {
-  //         return saveProfile({
-  //           username: this.state.username,
-  //           about: this.state.aboutMe,
-  //           photoUrl: imageUrl
-  //         });
-  //       })
-  //       .then(() => this.props.history.push("/"));
-  //   };
 
   render() {
     return (
@@ -132,7 +125,7 @@ export default class Login extends Component {
                   <Form.Input
                     onChange={this.handleFieldChange}
                     id="email"
-                    icon="user"
+                    icon="mail"
                     iconPosition="left"
                     label="Email"
                     placeholder="Email"
@@ -150,8 +143,6 @@ export default class Login extends Component {
                       maxLength="350"
                       onChange={this.handleFieldChange}
                       id="aboutMe"
-                      icon="lock"
-                      iconPosition="left"
                       label="About my Skoolie"
                       placeholder="Tell us about your skoolie!"
                     />
@@ -160,7 +151,7 @@ export default class Login extends Component {
                     control="input"
                     type="file"
                     label="Photo"
-                    onChange={e => this.setState({ photo: e.target.files[0] })}
+                    onChange={e => this.setState({ imgUrl: e.target.files[0] })}
                   />
                   <Button content="Register" primary />
                 </Form>
