@@ -1,14 +1,31 @@
 import React, { Component } from 'react'
-import { Header, Container, Button, Search, List, Image } from 'semantic-ui-react';
+import _ from "lodash";
+import { Header, Container, Button, Search, List} from 'semantic-ui-react';
 import HangoutForm from './HangoutForm';
+import HangoutCard from './HangoutCard';
+
+const initialState = { modalOpen: false,isLoading: false, results: [], value: '', hangoutId: null }
 
 export default class Hangout extends Component {
-    state = {
-        modalOpen: false,
-        isLoading: false,
-        results: [],
-        value: ''
-      };
+  state = initialState
+
+      handleResultSelect = (e, { result }) => this.setState({ value: result.title, hangoutId: result.id })
+
+      handleSearchChange = (e, { value }) => {
+        this.setState({ isLoading: true, value })
+
+        setTimeout(() => {
+          if (this.state.value.length < 1) return this.setState(initialState)
+
+          const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
+          const isMatch = result => re.test(result.title)
+
+          this.setState({
+            isLoading: false,
+            results: _.filter(this.props.source, isMatch),
+          })
+        }, 300)
+      }
 
     render() {
         return (
@@ -25,29 +42,20 @@ export default class Hangout extends Component {
                     this.setState({ modalOpen: false });
                   }}
                 />
-                   <Search
-            // loading={isLoading}
-            // onResultSelect={this.handleResultSelect}
-            // onSearchChange={_.debounce(this.handleSearchChange, 500, {
-            //   leading: true,
-            // })}
-            // results={results}
-            // value={value}
-            // {...this.props}
+               <Search
+            loading={this.state.isLoading}
+            onResultSelect={this.handleResultSelect}
+            onSearchChange={_.debounce(this.handleSearchChange, 500, {
+              leading: true,
+            })}
+            results={this.state.results}
+            value={this.state.value}
+            {...this.props}
           />
                 <List>
                     {
                         this.props.hangouts.map(hangout =>(
-                            <List.Item key={hangout.id}>
-                              <Image avatar src={hangout.imgUrl} />
-                              <List.Content>
-                                <List.Header >{hangout.hangoutName}</List.Header>
-                                <List.Description>
-                                  Address: {hangout.address}
-                                </List.Description>
-                                <Button content="Write Review" size="tiny" />
-                              </List.Content>
-                            </List.Item>
+                            <HangoutCard hangout={hangout} {...this.props} />
                          ))
                         }
                         </List>

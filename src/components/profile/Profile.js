@@ -3,7 +3,6 @@ import {
   Image,
   Grid,
   Header,
-  GridColumn,
   Container,
   Button
 } from "semantic-ui-react";
@@ -26,13 +25,13 @@ export default class Profile extends Component {
 
   render() {
     return (
-      <Grid column={5} row={3} relaxed="very" stackable>
+      <Grid divid="vertically" stackable>
         {this.props.user.map(userinfo => (
           <Container key={userinfo.id}>
-            <Grid.Row>
+            <Grid.Row columns={2} stretched>
               <Grid.Column>
                 <Header>{userinfo.username}</Header>
-                <Image src={userinfo.imgUrl} size="medium" />
+                <Image src={userinfo.imgUrl} size="medium" rounded floated="left"/>
               </Grid.Column>
               <Grid.Column>
                 <Header>About My Skoolie</Header>
@@ -59,7 +58,9 @@ export default class Profile extends Component {
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-              <GridColumn>{/* Map goes here */}</GridColumn>
+              <Grid.Column>
+                <Header>Your Destinations</Header>
+              </Grid.Column>
             </Grid.Row>
             <Grid.Row>
               <Grid.Column>
