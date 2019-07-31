@@ -111,7 +111,7 @@ export default class Login extends Component {
               size="tiny"
               trigger={<Button content="Sign up" icon="signup" size="big" />}
             >
-              <Modal.Header>Register</Modal.Header>
+              <Modal.Header>Register Your Skoolie!</Modal.Header>
               <Modal.Content>
                 <Form onSubmit={this.handleRegister}>
                   <Form.Input

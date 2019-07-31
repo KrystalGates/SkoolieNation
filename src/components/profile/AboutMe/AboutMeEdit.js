@@ -34,7 +34,7 @@ export default class AboutMeEdit extends Component {
             imgUrl: this.state.imgUrl
           };
       this.props.updateApi(editedAboutMe, "users")
-      // .then(() => this.props.history.push("/"))
+      .then(this.props.handleClose)
       }
     }
 
@@ -62,7 +62,7 @@ export default class AboutMeEdit extends Component {
                 <CharacterCounter value={this.state.aboutMe} maxLength={350} >
                     <Form.TextArea maxLength="350" onChange={this.handleFieldChange} id="aboutMe" label='About My Skoolie' value={this.state.aboutMe} />
                 </CharacterCounter>
-                    <Button content='Save' primary />
+                    <Button content='Save' primary  />
                     <Button onClick = {this.props.handleClose}>Cancel
         </Button>
                 </Form>
