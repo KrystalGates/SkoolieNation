@@ -34,21 +34,21 @@ export default class HangoutForm extends Component {
           alert("Please fill in all fields!");
         } else if (hangoutMatch.length === 0) {
           const ref = this.storageRef
-            .child(this.state.hangoutName)
-            return ref
-            .put(this.state.imgUrl)
-            .then(data => data.ref.getDownloadURL())
-            .then(imageUrl => {
-                return this.props.addHangout({
-                  hangoutName: this.state.hangoutName,
-                  address: this.state.address,
-                  latitude: this.state.latitude,
-                  longitute: this.state.longitute,
-                  imgUrl: imageUrl
-                }, "hangouts")
-                .then(this.props.handleClose)
-              }
-              )
+          .child(this.state.hangoutName)
+          return ref
+          .put(this.state.imgUrl)
+          .then(data => data.ref.getDownloadURL())
+          .then(imageUrl => {
+            return this.props.addToApi({
+              hangoutName: this.state.hangoutName,
+              address: this.state.address,
+              latitude: this.state.latitude,
+              longitute: this.state.longitute,
+              imgUrl: imageUrl
+            }, "hangouts")
+            .then(this.props.handleClose)
+          }
+          )
         } else {
           alert("Someone has already added this hangout!");
         }

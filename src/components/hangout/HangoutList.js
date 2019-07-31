@@ -6,10 +6,13 @@ import HangoutCard from './HangoutCard';
 
 const initialState = { modalOpen: false,isLoading: false, results: [], value: '', hangoutId: null }
 
-export default class Hangout extends Component {
+export default class HangoutList extends Component {
   state = initialState
 
-      handleResultSelect = (e, { result }) => this.setState({ value: result.title, hangoutId: result.id })
+      handleResultSelect = (e, { result }) => {
+        this.setState({ value: result.title, hangoutId: result.id })
+        this.props.history.push(`/hangouts/${this.state.hangoutId}`)
+      }
 
       handleSearchChange = (e, { value }) => {
         this.setState({ isLoading: true, value })
@@ -36,7 +39,7 @@ export default class Hangout extends Component {
                   }}/>
                  <HangoutForm
                   hangouts={this.props.hangouts}
-                  addHangout={this.props.addHangout}
+                  addToApi={this.props.addToApi}
                   modalOpen={this.state.modalOpen}
                   handleClose={() => {
                     this.setState({ modalOpen: false });
@@ -55,7 +58,7 @@ export default class Hangout extends Component {
                 <List>
                     {
                         this.props.hangouts.map(hangout =>(
-                            <HangoutCard hangout={hangout} {...this.props} />
+                            <HangoutCard hangout={hangout} addToApi={this.props.addToApi} {...this.props} key={hangout.id}/>
                          ))
                         }
                         </List>

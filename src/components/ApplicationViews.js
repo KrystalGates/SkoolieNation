@@ -3,7 +3,8 @@ import { Route, Redirect } from "react-router-dom";
 import ApiManager from "../modules/ApiManager";
 import Login from "./authentication/Login"
 import Profile from "./profile/Profile";
-import Hangout from "./hangout/Hangout"
+import HangoutList from "./hangout/HangoutList"
+import HangoutDetail from "./hangout/HangoutDetail";
 
 export default class ApplicationViews extends Component {
     isAuthenticated = () => sessionStorage.getItem("currentUser") !== null
@@ -71,7 +72,7 @@ export default class ApplicationViews extends Component {
             }}}
           />
                <Route
-            path="/hangouts" render={props =>{
+            exact path="/hangouts" render={props =>{
               if(this.isAuthenticated()){
                 let source = this.state.hangouts.map((hangout) => ({
                   id: hangout.id,
@@ -79,7 +80,16 @@ export default class ApplicationViews extends Component {
                   description: hangout.address,
                   image: hangout.imgUrl
                 }))
-                return <Hangout {...props} hangouts={this.state.hangouts} addHangout={this.addToApi} source={source}
+                return <HangoutList {...props} hangouts={this.state.hangouts} addToApi={this.addToApi} source={source}
+                />
+            }else {
+              return <Redirect to="./login" />;
+            }}}
+          />
+               <Route
+            path="/hangouts/:hangoutId(\d+)" render={props =>{
+              if(this.isAuthenticated()){
+                return <HangoutDetail {...props} hangouts={this.state.hangouts}
                 />
             }else {
               return <Redirect to="./login" />;
