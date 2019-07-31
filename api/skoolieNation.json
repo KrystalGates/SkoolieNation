@@ -1,12 +1,62 @@
 {
   "users": [
     {
+      "id": 1,
       "username": "sam",
       "email": "sam",
       "password": "sam",
-      "aboutMe": "kjsbfuawhe\n lisejhfeijfoijwe",
-      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/profileImage%2Fsam?alt=media&token=7a43c2fa-2ac1-430f-94a1-fd44311a5e9d",
+      "aboutMe": "kjsbfuawhe\n lisejhfeijfoijwe !!!! !!!!!",
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/profileImage%2Fsam?alt=media&token=7a43c2fa-2ac1-430f-94a1-fd44311a5e9d"
+    }
+  ],
+  "hangouts": [
+    {
+      "hangoutName": "poo",
+      "address": "123 maple way",
+      "latitude": null,
+      "longitute": null,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Fpoo?alt=media&token=2c2a0192-a348-47ec-bb3b-bf6badf0ad10",
       "id": 1
+    },
+    {
+      "hangoutName": "poo",
+      "address": "sdfsdf",
+      "latitude": null,
+      "longitute": null,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Fpoo?alt=media&token=2a1c4ea1-fda8-4863-89d8-30e0aa04ea90",
+      "id": 2
+    },
+    {
+      "hangoutName": "poo",
+      "address": "sdfsdf",
+      "latitude": null,
+      "longitute": null,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Fpoo?alt=media&token=3be31293-2d35-41f0-ba00-893898c0340d",
+      "id": 3
+    },
+    {
+      "hangoutName": "asfwe",
+      "address": "awegwae",
+      "latitude": null,
+      "longitute": null,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Fasfwe?alt=media&token=359b9b43-369f-4470-86d3-e3a36b1b1ba6",
+      "id": 4
+    },
+    {
+      "hangoutName": "poo",
+      "address": "123 maple way",
+      "latitude": null,
+      "longitute": null,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Fpoo?alt=media&token=cb8d9130-e3d2-4dd6-9f12-ca2c675da3f3",
+      "id": 5
+    },
+    {
+      "hangoutName": "what",
+      "address": "what",
+      "latitude": null,
+      "longitute": null,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Fwhat?alt=media&token=dce15021-b7f3-4bb4-bc2a-b126abb6cf7d",
+      "id": 6
     }
   ]
 }

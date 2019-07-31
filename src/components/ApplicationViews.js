@@ -10,7 +10,7 @@ export default class ApplicationViews extends Component {
 
     state = {
         users: [],
-        locations: [],
+        hangouts: [],
         reviews: [],
         didVisit: []
       };
@@ -20,7 +20,7 @@ export default class ApplicationViews extends Component {
         const newState = {};
 
         ApiManager.all("users").then(users => (newState.users = users));
-        ApiManager.all("locations").then(locations => (newState.locations = locations)
+        ApiManager.all("hangouts").then(hangouts => (newState.hangouts = hangouts)
           );
         ApiManager.all("reviews").then(reviews => (newState.reviews = reviews)
           );
@@ -71,9 +71,9 @@ export default class ApplicationViews extends Component {
             }}}
           />
                <Route
-            path="/hangout" render={props =>{
+            path="/hangouts" render={props =>{
               if(this.isAuthenticated()){
-                return <Hangout {...props} users={this.state.users}
+                return <Hangout {...props} hangouts={this.state.hangouts} addHangout={this.addToApi}
                 />
             }else {
               return <Redirect to="./login" />;
