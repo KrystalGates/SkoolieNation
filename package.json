@@ -5,6 +5,7 @@
   "dependencies": {
     "@mapbox/react-geocoder": "^2.5.0",
     "firebase": "^6.3.3",
+    "lodash": "^4.17.15",
     "react": "^16.8.6",
     "react-character-counter": "^1.0.1",
     "react-dom": "^16.8.6",

@@ -73,7 +73,13 @@ export default class ApplicationViews extends Component {
                <Route
             path="/hangouts" render={props =>{
               if(this.isAuthenticated()){
-                return <Hangout {...props} hangouts={this.state.hangouts} addHangout={this.addToApi}
+                let source = this.state.hangouts.map((hangout) => ({
+                  id: hangout.id,
+                  title: hangout.hangoutName,
+                  description: hangout.address,
+                  image: hangout.imgUrl
+                }))
+                return <Hangout {...props} hangouts={this.state.hangouts} addHangout={this.addToApi} source={source}
                 />
             }else {
               return <Redirect to="./login" />;
