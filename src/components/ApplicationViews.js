@@ -72,6 +72,15 @@ export default class ApplicationViews extends Component {
             }}}
           />
                <Route
+            exact path="/:userId(\d+)" render={props =>{
+              if(this.isAuthenticated()){
+                return <Profile {...props}
+                />
+            }else {
+              return <Redirect to="./login" />;
+            }}}
+          />
+               <Route
             exact path="/hangouts" render={props =>{
               if(this.isAuthenticated()){
                 let source = this.state.hangouts.map((hangout) => ({

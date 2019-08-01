@@ -4,7 +4,8 @@ import ReviewForm from '../review/ReviewForm';
 
 export default class HangoutCard extends Component {
   state={
-    modalOpen: false
+    modalOpen: false,
+    modalVisitedOpen: false
   }
     render() {
         return (
@@ -18,7 +19,7 @@ export default class HangoutCard extends Component {
               <List.Description>
                 Address: {this.props.hangout.address}
               </List.Description>
-              <Button content="Write a Review" onClick={() => {
+              <Button content="Write a Review" size="small" onClick={() => {
                     this.setState({ modalOpen: true });
                   }}/>
                  <ReviewForm
@@ -29,6 +30,9 @@ export default class HangoutCard extends Component {
                     this.setState({ modalOpen: false });
                   }}
                 />
+                 <Button content="Add Hangout" size="small" onClick={() => {
+                    this.setState({ modalVisitedOpen: true });
+                  }}/>
             </List.Content>
           </List.Item>
         )
