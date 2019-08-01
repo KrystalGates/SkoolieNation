@@ -3,12 +3,12 @@ const remoteURL = "http://localhost:5002";
 export default Object.create(null, {
   get: {
     value: function(entity, id) {
-      return fetch(`${remoteURL}/${entity}/${id}`).then(e => e.json());
+      return fetch(`${remoteURL}/${entity}/${id}`).then(data => data.json());
     }
   },
   all: {
     value: function(entity) {
-      return fetch(`${remoteURL}/${entity}`).then(e => e.json());
+      return fetch(`${remoteURL}/${entity}`).then(data => data.json());
     }
   },
   delete: {
@@ -16,38 +16,46 @@ export default Object.create(null, {
       return fetch(`${remoteURL}/${entity}/${id}`, {
         method: "DELETE"
       })
-        .then(e => e.json())
+        .then(data => data.json())
         .then(() => fetch(`${remoteURL}/${entity}`))
-        .then(e => e.json());
+        .then(data => data.json());
     }
   },
   post: {
-    value: function(newObj, entity){
-        return fetch(`${remoteURL}/${entity}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newObj)
-    }).then(data => data.json())
-  }
-},
+    value: function(newObj, entity) {
+      return fetch(`${remoteURL}/${entity}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newObj)
+      }).then(data => data.json());
+    }
+  },
   put: {
-    value: function(editedObj, entity){
-    return fetch(`${remoteURL}/${entity}/${editedObj.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(editedObj)
-    }).then(data => data.json());
-  }
-},
-  getDatesFromApi: {
-    value: function (database) {
-    // ADD SORT BY DATE [&_sort=event_date&_order=asc]
-    return fetch(`${remoteURL}/${database}?_sort=event_date&_order=asc`)
-    .then(data => data.json())
+    value: function(editedObj, entity) {
+      return fetch(`${remoteURL}/${entity}/${editedObj.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(editedObj)
+      }).then(data => data.json());
+    }
+  },
+  getMonkeysFromApi: {
+    value: function(database) {
+      // ADD SORT BY DATE [&_sort=event_date&_order=asc]
+      return fetch(`${remoteURL}/${database}?_sort=event_date&_order=asc`).then(
+        data => data.json()
+      );
+    }
+  },
+  getReviewsFromApi: {
+    value: function(id) {
+      return fetch(`${remoteURL}/reviews/?_expand=user&hangoutId=${id}`).then(data =>
+        data.json()
+      );
     }
   }
 });

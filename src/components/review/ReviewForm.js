@@ -20,11 +20,13 @@ export default class ReviewForm extends Component {
           alert("Please fill in all fields");
         }
         else {
+            let dateNow = Date.now()
             let newReview = {
                 userId: parseInt(sessionStorage.getItem("currentUser")),
                 hangoutId: this.props.hangoutId,
                 restrictions: this.state.restrictions,
-                review: this.state.review
+                review: this.state.review,
+                date: dateNow
             }
             this.props.addToApi(newReview, "reviews")
             .then(this.props.handleClose)
