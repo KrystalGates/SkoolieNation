@@ -48,16 +48,6 @@ export default class ApplicationViews extends Component {
          this.setState({ [entity]: obj });
        });
 
-       updateApi = (obj, entity) => {
-        return ApiManager.put(obj, entity)
-          .then(() => ApiManager.getReviewsFromApi(obj))
-          .then(obj => {
-            this.setState({
-              [entity]: obj
-            });
-          });
-      };
-
     render() {
         return (
             <React.Fragment>
@@ -98,7 +88,7 @@ export default class ApplicationViews extends Component {
                <Route
             path="/hangouts/:hangoutId(\d+)" render={props =>{
               if(this.isAuthenticated()){
-                return <HangoutReview {...props} hangouts={this.state.hangouts} 
+                return <HangoutReview {...props} hangouts={this.state.hangouts}
                 />
             }else {
               return <Redirect to="./login" />;
