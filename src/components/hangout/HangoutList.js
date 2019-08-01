@@ -58,7 +58,7 @@ export default class HangoutList extends Component {
                 <List>
                     {
                         this.props.hangouts.map(hangout =>(
-                            <HangoutCard hangout={hangout} addToApi={this.props.addToApi} {...this.props} key={hangout.id}/>
+                            <HangoutCard hangout={hangout} addToApi={this.props.addToApi} {...this.props} key={hangout.id} />
                          ))
                         }
                         </List>
