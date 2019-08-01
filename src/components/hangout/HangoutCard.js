@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button, List, Image } from 'semantic-ui-react';
 import ReviewForm from '../review/ReviewForm';
+import HangoutVisitedForm from './HangoutVisitedForm';
 
 export default class HangoutCard extends Component {
   state={
@@ -17,7 +18,7 @@ export default class HangoutCard extends Component {
             <List.Content>
               <List.Header >{this.props.hangout.hangoutName}</List.Header>
               <List.Description>
-                Address: {this.props.hangout.address}
+                 {this.props.hangout.address}
               </List.Description>
               <Button content="Write a Review" size="small" onClick={() => {
                     this.setState({ modalOpen: true });
@@ -30,9 +31,10 @@ export default class HangoutCard extends Component {
                     this.setState({ modalOpen: false });
                   }}
                 />
-                 <Button content="Add Hangout" size="small" onClick={() => {
+                 <Button content="Add to your Skoolie's Map" size="small" onClick={() => {
                     this.setState({ modalVisitedOpen: true });
                   }}/>
+                  <HangoutVisitedForm  modalVisitedOpen={this.state.modalVisitedOpen}/>
             </List.Content>
           </List.Item>
         )

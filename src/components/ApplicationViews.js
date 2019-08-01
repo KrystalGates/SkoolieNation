@@ -4,7 +4,7 @@ import ApiManager from "../modules/ApiManager";
 import Login from "./authentication/Login"
 import Profile from "./profile/Profile";
 import HangoutList from "./hangout/HangoutList"
-import HangoutDetail from "./hangout/HangoutDetail";
+import HangoutReview from "./hangout/HangoutReview";
 
 export default class ApplicationViews extends Component {
     isAuthenticated = () => sessionStorage.getItem("currentUser") !== null
@@ -50,7 +50,7 @@ export default class ApplicationViews extends Component {
 
        updateApi = (obj, entity) => {
         return ApiManager.put(obj, entity)
-          .then(() => ApiManager.all(entity))
+          .then(() => ApiManager.getReviewsFromApi(obj))
           .then(obj => {
             this.setState({
               [entity]: obj
@@ -98,7 +98,7 @@ export default class ApplicationViews extends Component {
                <Route
             path="/hangouts/:hangoutId(\d+)" render={props =>{
               if(this.isAuthenticated()){
-                return <HangoutDetail {...props} hangouts={this.state.hangouts}
+                return <HangoutReview {...props} hangouts={this.state.hangouts} 
                 />
             }else {
               return <Redirect to="./login" />;
