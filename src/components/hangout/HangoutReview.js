@@ -35,7 +35,6 @@ export default class HangoutReview extends Component {
             });
 
     render() {
-        console.log(this.state.hangout)
         return (
             <Container>
                 <Card key={this.state.hangout.id} size="small">
