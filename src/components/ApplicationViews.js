@@ -22,7 +22,7 @@ export default class ApplicationViews extends Component {
     ApiManager.all("users").then(users => (newState.users = users));
     ApiManager.all("hangouts").then(hangouts => (newState.hangouts = hangouts));
     ApiManager.all("reviews").then(reviews => (newState.reviews = reviews));
-    ApiManager.all("didVisits")
+    ApiManager.getDidVisitHangout("didVisits")
       .then(didVisits => (newState.didVisits = didVisits))
       .then(() => this.setState(newState));
   }
@@ -30,6 +30,16 @@ export default class ApplicationViews extends Component {
     addToApi = (obj, entity) =>
     ApiManager.post(obj, entity)
    .then(() => ApiManager.all(entity))
+   .then(obj =>{
+       this.setState({
+       [entity]: obj
+     })
+   }
+   );
+
+    addReviewToApi = (obj, entity) =>
+    ApiManager.post(obj, entity)
+   .then(() => ApiManager.getDidVisitHangout())
    .then(obj =>{
        this.setState({
        [entity]: obj
@@ -48,17 +58,19 @@ export default class ApplicationViews extends Component {
   render() {
     return (
       <React.Fragment>
-        <Route
+      <Route
           exact
           path="/"
           render={props => {
             if (this.isAuthenticated()) {
+              let currentUserDidVisit= this.state.didVisits.filter(hangout => hangout.userId === parseInt(sessionStorage.getItem("currentUser")) && hangout.didVisit === true)
+              let currentUserDesiredVisit=this.state.didVisits.filter(hangout => hangout.userId === parseInt(sessionStorage.getItem("currentUser")) && hangout.didVisit === false)
               let user = this.state.users.filter(
                 user =>
                   user.id === parseInt(sessionStorage.getItem("currentUser"))
               );
               return (
-                <Profile {...props} user={user} updateApi={this.updateApi} />
+                <Profile {...props} user={user} updateApi={this.updateApi} userVisited={currentUserDidVisit} userDesiredVisit={currentUserDesiredVisit} />
               );
             } else {
               return <Redirect to="./login" />;

@@ -4,7 +4,8 @@ import {
   Grid,
   Header,
   Container,
-  Button
+  Button,
+  List
 } from "semantic-ui-react";
 import AboutMeEdit from "./AboutMe/AboutMeEdit";
 
@@ -24,6 +25,8 @@ export default class Profile extends Component {
   }
 
   render() {
+    console.log("visited", this.props.userVisited);
+    console.log("desired", this.props.userDesiredVisit);
     return (
       <Grid divid="vertically" stackable>
         {this.props.user.map(userinfo => (
@@ -31,7 +34,12 @@ export default class Profile extends Component {
             <Grid.Row columns={2} stretched>
               <Grid.Column>
                 <Header>{userinfo.username}</Header>
-                <Image src={userinfo.imgUrl} size="medium" rounded floated="left"/>
+                <Image
+                  src={userinfo.imgUrl}
+                  size="medium"
+                  rounded
+                  floated="left"
+                />
               </Grid.Column>
               <Grid.Column>
                 <Header>About My Skoolie</Header>
@@ -48,7 +56,7 @@ export default class Profile extends Component {
                   }}
                 />
                 <AboutMeEdit
-                updateApi={this.props.updateApi}
+                  updateApi={this.props.updateApi}
                   userId={userinfo.id}
                   modalOpen={this.state.modalOpen}
                   handleClose={() => {
@@ -64,10 +72,54 @@ export default class Profile extends Component {
             </Grid.Row>
             <Grid.Row>
               <Grid.Column>
-                <Header>Visited Destinations</Header>
+                <List>
+                  <Header>Desired Destination</Header>
+                  {this.props.userDesiredVisit.map(visit => (
+                    <List.Item>
+                      <Image
+                        rounded
+                        size="tiny"
+                        src={visit.hangout.imgUrl}
+                        onClick={() => {
+                          this.props.history.push(
+                            `/hangouts/${visit.hangoutId}`
+                          );
+                        }}
+                      />
+                      <List.Content>
+                        <List.Header>{visit.hangout.hangoutName}</List.Header>
+                        <List.Description>
+                          {visit.hangout.address}
+                        </List.Description>
+                      </List.Content>
+                    </List.Item>
+                  ))}
+                </List>
               </Grid.Column>
               <Grid.Column>
-                <Header>Desired Destinations</Header>
+                <List>
+                  <Header>Visited Destinations</Header>
+                  {this.props.userVisited.map(visit => (
+                    <List.Item>
+                      <Image
+                        rounded
+                        size="tiny"
+                        src={visit.hangout.imgUrl}
+                        onClick={() => {
+                          this.props.history.push(
+                            `/hangouts/${visit.hangoutId}`
+                          );
+                        }}
+                      />
+                      <List.Content>
+                        <List.Header>{visit.hangout.hangoutName}</List.Header>
+                        <List.Description>
+                          {visit.hangout.address}
+                        </List.Description>
+                      </List.Content>
+                    </List.Item>
+                  ))}
+                </List>
               </Grid.Column>
             </Grid.Row>
           </Container>

@@ -29,7 +29,7 @@ export default class HangoutReview extends Component {
 
           deleteFromApi = (obj, entity) =>
           ApiManager.delete(obj, entity)
-            .then(ApiManager.getReviewsFromApi(this.props.match.params.hangoutId))
+            .then(ApiManager.getReviewsFromApi())
             .then(obj => {
               this.setState({ [entity]: obj });
             });
