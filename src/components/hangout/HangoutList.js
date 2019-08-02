@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import _ from "lodash";
-import { Header, Container, Button, Search, List} from 'semantic-ui-react';
+import { Header, Container, Button, Search, Grid} from 'semantic-ui-react';
 import HangoutForm from './HangoutForm';
 import HangoutCard from './HangoutCard';
 
@@ -33,8 +33,10 @@ export default class HangoutList extends Component {
     render() {
         return (
             <Container>
-                <Header>Hangouts</Header>
-                <Button content="Add a Hangout" onClick={() => {
+                <Header textAlign="center">Hangouts</Header>
+                <Container>
+
+                <Button floated="center" content="Add a Hangout" onClick={() => {
                     this.setState({ modalOpen: true });
                   }}/>
                  <HangoutForm
@@ -54,14 +56,18 @@ export default class HangoutList extends Component {
             results={this.state.results}
             value={this.state.value}
             {...this.props}
+            placeholder="Search Hangouts"
           />
-                <List>
+                </Container>
+                <Grid container >
+                  <Grid.Row>
                     {
                         this.props.hangouts.map(hangout =>(
-                            <HangoutCard hangout={hangout} addToApi={this.props.addToApi} {...this.props} key={hangout.id} />
+                            <HangoutCard hangout={hangout} addToApi={this.props.addToApi} {...this.props} key={hangout.id} didVisit={this.props.didVisit} />
                          ))
                         }
-                        </List>
+                  </Grid.Row>
+                        </Grid>
             </Container>
         )
     }

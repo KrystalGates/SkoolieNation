@@ -32,9 +32,11 @@ export default class HangoutForm extends Component {
           this.state.imgUrl === null
         ) {
           alert("Please fill in all fields!");
-        } else if (hangoutMatch.length === 0){
-          alert("Someone has already added this hangout!");
-        }else
+        }
+        // else if (hangoutMatch.length === 0){
+        //   alert("Someone has already added this hangout!");
+        // }
+        else
 
         {
           const ref = this.storageRef
