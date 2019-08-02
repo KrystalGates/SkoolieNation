@@ -57,5 +57,10 @@ export default Object.create(null, {
         data.json()
       );
     }
+  },
+  getDidVisitHangout: {
+    value: function() {
+      return fetch(`${remoteURL}/didVisits/?_expand=hangout`) .then(data => data.json())
+    }
   }
 });
