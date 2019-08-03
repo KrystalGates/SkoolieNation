@@ -4,7 +4,7 @@ import { Modal, Button, Header, Icon } from 'semantic-ui-react';
 export default class ReviewCardDelete extends Component {
 
 handleDeleteReview = () =>{
-  this.props.deleteFromApi(this.props.reviewId, "reviews")
+  this.props.deleteReviewFromApi(this.props.reviewId, "reviews")
   .then(this.props.handleClose)
 }
 

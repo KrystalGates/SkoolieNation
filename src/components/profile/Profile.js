@@ -25,6 +25,7 @@ export default class Profile extends Component {
   }
 
   render() {
+    console.log(this.props.match.params.userId)
     console.log("visited", this.props.userVisited);
     console.log("desired", this.props.userDesiredVisit);
     return (

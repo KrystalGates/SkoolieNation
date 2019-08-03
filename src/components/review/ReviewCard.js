@@ -3,19 +3,21 @@ import { List, Button, Image } from "semantic-ui-react";
 import ReviewCardDelete from "./ReviewCardDelete";
 import ReviewFormEdit from "./ReviewFormEdit";
 import moment from "moment";
+import {withRouter} from "react-router"
 
-export default class ReviewCard extends Component {
+class ReviewCard extends Component {
   state = {
     modalEditOpen: false,
-    modalDeleteOpen: false,
-    btnEnabled: false
+    modalDeleteOpen: false
   };
 
-  componentDidMount() {
+  btnEnabled = () => {
     let currentUser = parseInt(sessionStorage.getItem("currentUser"));
+    let str = false
     if (this.props.review.user.id === currentUser) {
-      this.setState({ btnEnabled: true });
+      str=true
     }
+    return str
   }
 
   render() {
@@ -26,7 +28,7 @@ export default class ReviewCard extends Component {
           avatar
           src={this.props.review.user.imgUrl}
           onClick={() => {
-            this.props.history.push(`/${this.props.review.user.id}`);
+            this.props.history.push(`/${this.props.review.userId}`);
           }}
         />
         <List.Content>
@@ -42,7 +44,7 @@ export default class ReviewCard extends Component {
             content="Edit"
             size="small"
             style={{
-              display: this.state.btnEnabled ? "block" : "none"
+              display: this.btnEnabled() ? "block" : "none"
             }}
             onClick={() => {
               this.setState({ modalEditOpen: true });
@@ -60,18 +62,19 @@ export default class ReviewCard extends Component {
             content="Delete"
             size="small"
             style={{
-              display: this.state.btnEnabled ? "block" : "none"
+              display: this.btnEnabled() ? "block" : "none"
             }}
             onClick={() => {
               this.setState({ modalDeleteOpen: true });
             }}
           />
           <ReviewCardDelete
+          hangoutId={this.props.hangoutId}
             modalDeleteOpen={this.state.modalDeleteOpen}
             handleClose={() => {
               this.setState({ modalDeleteOpen: false });
             }}
-            deleteFromApi={this.props.deleteFromApi}
+            deleteReviewFromApi={this.props.deleteReviewFromApi}
             reviewId={this.props.review.id}
           />
         </List.Content>
@@ -79,3 +82,5 @@ export default class ReviewCard extends Component {
     );
   }
 }
+
+export default withRouter(ReviewCard)
