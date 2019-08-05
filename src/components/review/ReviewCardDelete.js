@@ -5,7 +5,6 @@ export default class ReviewCardDelete extends Component {
 
 handleDeleteReview = () =>{
   this.props.deleteReviewFromApi(this.props.reviewId, "reviews")
-  .then(this.props.handleClose)
 }
 
     render() {

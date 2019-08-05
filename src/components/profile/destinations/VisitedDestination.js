@@ -41,13 +41,13 @@ export default class VisitedDestination extends Component {
                       <Button content="Remove"
                       style={{
               display: this.btnEnabled() ? "block" : "none" }}  onClick={() => {
-                this.setState({ modalDeleteOpen: true });
+                this.setState({ modalDestinationDeleteOpen: true });
 
             }} />
             <RemoveDestination modalDestinationDeleteOpen={this.state.modalDestinationDeleteOpen}
             handleClose={() => {
               this.setState({ modalDestinationDeleteOpen: false });
-            }} />
+            }} deleteVisitFromApi={this.props.deleteVisitFromApi} didVisitId={this.props.visit.id} />
                       </List.Content>
                     </List.Item>
         )

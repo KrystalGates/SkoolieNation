@@ -232,27 +232,33 @@
     },
     {
       "userId": 3,
-      "hangoutId": 1,
-      "didVisit": false,
-      "id": 9
-    },
-    {
-      "userId": 3,
-      "hangoutId": 2,
-      "didVisit": false,
-      "id": 10
-    },
-    {
-      "userId": 3,
-      "hangoutId": 3,
-      "didVisit": true,
-      "id": 11
-    },
-    {
-      "userId": 3,
       "hangoutId": 5,
       "didVisit": true,
       "id": 12
+    },
+    {
+      "userId": 2,
+      "hangoutId": 1,
+      "didVisit": false,
+      "id": 13
+    },
+    {
+      "userId": 2,
+      "hangoutId": 2,
+      "didVisit": false,
+      "id": 14
+    },
+    {
+      "userId": 2,
+      "hangoutId": 3,
+      "didVisit": true,
+      "id": 15
+    },
+    {
+      "userId": 2,
+      "hangoutId": 4,
+      "didVisit": true,
+      "id": 16
     }
   ]
 }

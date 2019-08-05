@@ -22,7 +22,7 @@ export default class ApplicationViews extends Component {
     ApiManager.all("users").then(users => (newState.users = users));
     ApiManager.all("hangouts").then(hangouts => (newState.hangouts = hangouts));
     // ApiManager.all("reviews").then(reviews => (newState.reviews = reviews));
-    ApiManager.getDidVisitHangout("didVisits")
+    ApiManager.getDidVisitHangout()
       .then(didVisits => (newState.didVisits = didVisits))
       .then(() => this.setState(newState));
   }
@@ -47,13 +47,12 @@ export default class ApplicationViews extends Component {
    }
    );
 
-  //  deleteFromApi = (obj, entity) =>
-  //  ApiManager.delete(obj, entity)
-  //    .then(ApiManager.all(entity))
-  //    .then(obj => {
-  //     //  this.props.history.push("/");
-  //      this.setState({ [entity]: obj });
-  //    });
+   deleteVisitFromApi = (obj, entity) =>
+   ApiManager.delete(obj, entity)
+     .then(()=>ApiManager.getDidVisitHangout())
+     .then(obj => {
+       this.setState({ [entity]: obj });
+     });
 
   render() {
     return (
@@ -70,7 +69,7 @@ export default class ApplicationViews extends Component {
                   user.id === parseInt(sessionStorage.getItem("currentUser"))
               );
               return (
-                <Profile {...props} user={user} updateApi={this.updateApi} userVisited={currentUserDidVisit} userDesiredVisit={currentUserDesiredVisit} />
+                <Profile {...props} user={user} updateApi={this.updateApi} userVisited={currentUserDidVisit} userDesiredVisit={currentUserDesiredVisit} deleteVisitFromApi={this.deleteVisitFromApi} />
               );
             } else {
               return <Redirect to="./login" />;
@@ -82,7 +81,7 @@ export default class ApplicationViews extends Component {
           path="/:userId(\d+)"
           render={props => {
             if (this.isAuthenticated()) {
-              let userDidVisit= this.state.didVisits.filter(hangout => hangout.userId === parseInt(props.match.params.userId && hangout.didVisit) === true)
+              let userDidVisit= this.state.didVisits.filter(hangout => hangout.userId === parseInt(props.match.params.userId) && hangout.didVisit === true)
               let userDesiredVisit=this.state.didVisits.filter(hangout => hangout.userId === parseInt(props.match.params.userId) && hangout.didVisit === false)
               let users = this.state.users.filter(
                 user =>
