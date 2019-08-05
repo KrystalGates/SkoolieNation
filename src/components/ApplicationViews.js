@@ -12,7 +12,7 @@ export default class ApplicationViews extends Component {
   state = {
     users: [],
     hangouts: [],
-    reviews: [],
+    // reviews: [],
     didVisits: []
   };
 
@@ -21,7 +21,7 @@ export default class ApplicationViews extends Component {
 
     ApiManager.all("users").then(users => (newState.users = users));
     ApiManager.all("hangouts").then(hangouts => (newState.hangouts = hangouts));
-    ApiManager.all("reviews").then(reviews => (newState.reviews = reviews));
+    // ApiManager.all("reviews").then(reviews => (newState.reviews = reviews));
     ApiManager.getDidVisitHangout("didVisits")
       .then(didVisits => (newState.didVisits = didVisits))
       .then(() => this.setState(newState));
@@ -82,7 +82,13 @@ export default class ApplicationViews extends Component {
           path="/:userId(\d+)"
           render={props => {
             if (this.isAuthenticated()) {
-              return <Profile {...props} />;
+              let userDidVisit= this.state.didVisits.filter(hangout => hangout.userId === parseInt(props.match.params.userId && hangout.didVisit) === true)
+              let userDesiredVisit=this.state.didVisits.filter(hangout => hangout.userId === parseInt(props.match.params.userId) && hangout.didVisit === false)
+              let users = this.state.users.filter(
+                user =>
+                  user.id === parseInt(props.match.params.userId)
+              );
+              return <Profile {...props} user={users} updateApi={this.updateApi} userVisited={userDidVisit} userDesiredVisit={userDesiredVisit} />
             } else {
               return <Redirect to="./login" />;
             }
@@ -118,7 +124,7 @@ export default class ApplicationViews extends Component {
           render={props => {
             if (this.isAuthenticated()) {
               return (
-                <HangoutReview {...props} hangouts={this.state.hangouts} />
+                <HangoutReview {...props}  />
               );
             } else {
               return <Redirect to="./login" />;

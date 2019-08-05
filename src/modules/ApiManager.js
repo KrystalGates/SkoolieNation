@@ -12,13 +12,13 @@ export default Object.create(null, {
     }
   },
   delete: {
-    value: function(id, entity) {
+    value: function(id, entity) { console.log("reviewId Delete", id)
       return fetch(`${remoteURL}/${entity}/${id}`, {
         method: "DELETE"
       })
         .then(data => data.json())
-        .then(() => fetch(`${remoteURL}/${entity}`))
-        .then(data => data.json());
+        // .then(() => fetch(`${remoteURL}/${entity}`))
+        // .then(data => data.json());
     }
   },
   post: {
@@ -43,24 +43,18 @@ export default Object.create(null, {
       }).then(data => data.json());
     }
   },
-  getMonkeysFromApi: {
-    value: function(database) {
-      // ADD SORT BY DATE [&_sort=event_date&_order=asc]
-      return fetch(`${remoteURL}/${database}?_sort=event_date&_order=asc`).then(
-        data => data.json()
-      );
-    }
-  },
   getReviewsFromApi: {
-    value: function(id) {
-      return fetch(`${remoteURL}/reviews/?_expand=user&hangoutId=${id}`).then(data =>
-        data.json()
+    value: function(id) { console.log("hangoutId", id)
+      return fetch(`${remoteURL}/reviews/?_expand=user&hangoutId=${id}`).then(
+        data => data.json()
       );
     }
   },
   getDidVisitHangout: {
     value: function() {
-      return fetch(`${remoteURL}/didVisits/?_expand=hangout`) .then(data => data.json())
+      return fetch(`${remoteURL}/didVisits/?_expand=hangout`).then(data =>
+        data.json()
+      );
     }
   }
 });
