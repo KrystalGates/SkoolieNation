@@ -8,6 +8,8 @@ import {
   List
 } from "semantic-ui-react";
 import AboutMeEdit from "./AboutMe/AboutMeEdit";
+import VisitedDestination from "./destinations/VisitedDestination";
+import DesiredDestination from "./destinations/DesiredDestination";
 
 export default class Profile extends Component {
   state = {
@@ -25,9 +27,6 @@ export default class Profile extends Component {
   }
 
   render() {
-    console.log(this.props.match.params.userId)
-    console.log("visited", this.props.userVisited);
-    console.log("desired", this.props.userDesiredVisit);
     return (
       <Grid divid="vertically" stackable>
         {this.props.user.map(userinfo => (
@@ -76,24 +75,7 @@ export default class Profile extends Component {
                 <List>
                   <Header>Desired Destination</Header>
                   {this.props.userDesiredVisit.map(visit => (
-                    <List.Item>
-                      <Image
-                        rounded
-                        size="tiny"
-                        src={visit.hangout.imgUrl}
-                        onClick={() => {
-                          this.props.history.push(
-                            `/hangouts/${visit.hangoutId}`
-                          );
-                        }}
-                      />
-                      <List.Content>
-                        <List.Header>{visit.hangout.hangoutName}</List.Header>
-                        <List.Description>
-                          {visit.hangout.address}
-                        </List.Description>
-                      </List.Content>
-                    </List.Item>
+                    <DesiredDestination visit={visit} key={visit.id} />
                   ))}
                 </List>
               </Grid.Column>
@@ -101,24 +83,7 @@ export default class Profile extends Component {
                 <List>
                   <Header>Visited Destinations</Header>
                   {this.props.userVisited.map(visit => (
-                    <List.Item>
-                      <Image
-                        rounded
-                        size="tiny"
-                        src={visit.hangout.imgUrl}
-                        onClick={() => {
-                          this.props.history.push(
-                            `/hangouts/${visit.hangoutId}`
-                          );
-                        }}
-                      />
-                      <List.Content>
-                        <List.Header>{visit.hangout.hangoutName}</List.Header>
-                        <List.Description>
-                          {visit.hangout.address}
-                        </List.Description>
-                      </List.Content>
-                    </List.Item>
+                    <VisitedDestination visit={visit} key={visit.id} />
                   ))}
                 </List>
               </Grid.Column>

@@ -12,7 +12,7 @@ export default Object.create(null, {
     }
   },
   delete: {
-    value: function(id, entity) {
+    value: function(id, entity) { console.log("reviewId Delete", id)
       return fetch(`${remoteURL}/${entity}/${id}`, {
         method: "DELETE"
       })
@@ -44,7 +44,7 @@ export default Object.create(null, {
     }
   },
   getReviewsFromApi: {
-    value: function(id) {
+    value: function(id) { console.log("hangoutId", id)
       return fetch(`${remoteURL}/reviews/?_expand=user&hangoutId=${id}`).then(
         data => data.json()
       );

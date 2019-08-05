@@ -82,7 +82,7 @@ export default class ApplicationViews extends Component {
           path="/:userId(\d+)"
           render={props => {
             if (this.isAuthenticated()) {
-              let userDidVisit= this.state.didVisits.filter(hangout => hangout.userId === props.match.params.userId && hangout.didVisit === true)
+              let userDidVisit= this.state.didVisits.filter(hangout => hangout.userId === parseInt(props.match.params.userId && hangout.didVisit) === true)
               let userDesiredVisit=this.state.didVisits.filter(hangout => hangout.userId === parseInt(props.match.params.userId) && hangout.didVisit === false)
               let users = this.state.users.filter(
                 user =>
