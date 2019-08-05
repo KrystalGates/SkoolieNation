@@ -37,6 +37,19 @@ export default class ApplicationViews extends Component {
    }
    );
 
+   updateApi = (obj, entity) => {
+    return ApiManager.put(obj, entity)
+      .then(() =>
+        ApiManager.getDidVisitHangout()
+      )
+      .then(obj => {
+        this.setState({
+          [entity]: obj
+        });
+      });
+  };
+
+
     addReviewToApi = (obj, entity) =>
     ApiManager.post(obj, entity)
    .then(() => ApiManager.getDidVisitHangout())
@@ -69,7 +82,7 @@ export default class ApplicationViews extends Component {
                   user.id === parseInt(sessionStorage.getItem("currentUser"))
               );
               return (
-                <Profile {...props} user={user} updateApi={this.updateApi} userVisited={currentUserDidVisit} userDesiredVisit={currentUserDesiredVisit} deleteVisitFromApi={this.deleteVisitFromApi} />
+                <Profile {...props} user={user} userVisited={currentUserDidVisit} userDesiredVisit={currentUserDesiredVisit} deleteVisitFromApi={this.deleteVisitFromApi} updateApi={this.updateApi} />
               );
             } else {
               return <Redirect to="./login" />;
