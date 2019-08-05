@@ -5,11 +5,13 @@ import {
     List
   } from "semantic-ui-react";
 import RemoveDestination from './RemoveDestination';
+import EditVisitDestination from './EditVisitDestination';
 
 export default class DesiredDestination extends Component {
 
     state={
-        modalDestinationDeleteOpen:false
+        modalDestinationDeleteOpen:false,
+        modalVisitedEditOpen:false
     }
 
     btnEnabled = () => {
@@ -53,8 +55,14 @@ export default class DesiredDestination extends Component {
             <Button content="Move to visited"
                       style={{
               display: this.btnEnabled() ? "block" : "none"
-            }}
+            }} onClick={() => {
+                this.setState({ modalVisitedEditOpen: true });
+              }}
             />
+            <EditVisitDestination updateApi={this.props.updateApi} visitId={this.props.visit.id} modalVisitedEditOpen={this.state.modalVisitedEditOpen}
+            handleClose={() => {
+              this.setState({ modalVisitedEditOpen: false });
+            }}/>
             </List.Content>
           </List.Item>
         )

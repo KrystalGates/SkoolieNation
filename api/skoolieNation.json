@@ -259,6 +259,36 @@
       "hangoutId": 4,
       "didVisit": true,
       "id": 16
+    },
+    {
+      "id": 17,
+      "userId": 3,
+      "hangoutId": 2,
+      "didVisit": true
+    },
+    {
+      "id": 18,
+      "userId": 3,
+      "hangoutId": 3,
+      "didVisit": true
+    },
+    {
+      "id": 19,
+      "userId": 3,
+      "hangoutId": 6,
+      "didVisit": true
+    },
+    {
+      "id": 20,
+      "userId": 3,
+      "hangoutId": 1,
+      "didVisit": true
+    },
+    {
+      "id": 21,
+      "userId": 3,
+      "hangoutId": 4,
+      "didVisit": false
     }
   ]
 }
