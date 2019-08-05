@@ -75,7 +75,7 @@ export default class Profile extends Component {
                 <List>
                   <Header>Desired Destination</Header>
                   {this.props.userDesiredVisit.map(visit => (
-                    <DesiredDestination visit={visit} key={visit.id} />
+                    <DesiredDestination visit={visit} key={visit.id} deleteVisitFromApi={this.props.deleteVisitFromApi} />
                   ))}
                 </List>
               </Grid.Column>
@@ -83,7 +83,7 @@ export default class Profile extends Component {
                 <List>
                   <Header>Visited Destinations</Header>
                   {this.props.userVisited.map(visit => (
-                    <VisitedDestination visit={visit} key={visit.id} />
+                    <VisitedDestination visit={visit} key={visit.id} deleteVisitFromApi={this.props.deleteVisitFromApi} />
                   ))}
                 </List>
               </Grid.Column>

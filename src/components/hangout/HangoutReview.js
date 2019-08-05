@@ -33,18 +33,14 @@ export default class HangoutReview extends Component {
   };
 
   deleteReviewFromApi = (obj, entity) =>{
-    console.log("hangoutId match", this.props.match.params.hangoutId)
-
-   return ApiManager.delete(obj, entity)
-      .then(ApiManager.getReviewsFromApi(this.props.match.params.hangoutId))
+      ApiManager.delete(obj, entity)
+      .then(() => ApiManager.getReviewsFromApi(this.props.match.params.hangoutId))
       .then(reviews => {
-        console.log("reviews", reviews)
         this.setState({ [entity]: reviews });
       });
   }
 
   render() {
-    console.log(this.state.reviews);
     return (
       <Container>
         <Card key={this.state.hangout.id} >
