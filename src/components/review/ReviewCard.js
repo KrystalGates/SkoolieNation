@@ -24,7 +24,7 @@ class ReviewCard extends Component {
     const date = moment(this.props.review.date).format("MMM Do YYYY");
     return (
       <List.Item key={this.props.review.id}>
-        <Image 
+        <Image
           avatar
           src={this.props.review.user.imgUrl}
           onClick={() => {
@@ -38,7 +38,7 @@ class ReviewCard extends Component {
             Restrictions: {this.props.review.restrictions}
           </List.Description>
           <List.Description>
-            Review: {this.props.review.review}
+          <div style={{whiteSpace: "pre"}}>Review: {this.props.review.review} </div>
           </List.Description>
           <Button
             content="Edit"

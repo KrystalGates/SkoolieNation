@@ -28,8 +28,8 @@ export default class ReviewForm extends Component {
                 review: this.state.review,
                 date: dateNow
             }
-            this.props.addToApi(newReview, "reviews")
-            .then(this.props.handleClose)
+            this.props.addReviewToApi(newReview, "reviews")
+            .then(this.props.history.push(`/hangouts/${this.props.hangoutId}`))
         }
       };
 

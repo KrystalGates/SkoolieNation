@@ -24,7 +24,7 @@ export default class HangoutForm extends Component {
         event.preventDefault();
         let hangoutMatch = this.props.hangouts.filter(
           hangout =>
-            hangout.username === this.state.address || hangout.email === this.state.hangoutName
+            hangout.address === this.state.address || hangout.hangoutName === this.state.hangoutName
         );
         if (
           this.state.hangoutName === "" ||
@@ -33,12 +33,7 @@ export default class HangoutForm extends Component {
         ) {
           alert("Please fill in all fields!");
         }
-        // else if (hangoutMatch.length === 0){
-        //   alert("Someone has already added this hangout!");
-        // }
-        else
-
-        {
+        else if (hangoutMatch.length === 0){
           const ref = this.storageRef
           .child(this.state.hangoutName)
           return ref
@@ -56,15 +51,19 @@ export default class HangoutForm extends Component {
           }
           )
         }
+        else
+        {
+          alert("Someone has already added this hangout!");
+        }
       };
 
-      getInitialState =()=> {
-        return { value: null };
-      }
+      // getInitialState =()=> {
+      //   return { value: null };
+      // }
 
-      onSelect=(value)=> {
-        this.setState({ value: value });
-      }
+      // onSelect=(value)=> {
+      //   this.setState({ value: value });
+      // }
 
     render() {
         return (

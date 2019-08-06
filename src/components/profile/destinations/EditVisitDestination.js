@@ -17,7 +17,7 @@ export default class EditVisitDestination extends Component {
             hangoutId: this.state.hangoutId,
             didVisit: true
           };
-          this.props.updateApi(editVisit, "didVisits").then(
+          this.props.updateVisitApi(editVisit, "didVisits").then(
             this.props.handleClose
           );
         }

@@ -44,11 +44,11 @@ export default class HangoutCard extends Component {
           />
           <ReviewForm
             hangoutId={this.props.hangout.id}
-            addToApi={this.props.addToApi}
+            addReviewToApi={this.props.addReviewToApi}
             modalOpen={this.state.modalOpen}
             handleClose={() => {
               this.setState({ modalOpen: false });
-            }}
+            }} {...this.props}
           />
           <Button
             content="Add to your Skoolie's Map"

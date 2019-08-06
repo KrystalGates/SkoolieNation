@@ -21,7 +21,7 @@ export default class HangoutList extends Component {
           if (this.state.value.length < 1) return this.setState(initialState)
 
           const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-          const isMatch = result => re.test(result.title)
+          const isMatch = result => re.test(result.description)
 
           this.setState({
             isLoading: false,
@@ -36,7 +36,7 @@ export default class HangoutList extends Component {
                 <Header textAlign="center">Hangouts</Header>
                 <Container>
 
-                <Button floated="center" content="Add a Hangout" onClick={() => {
+                <Button content="Add a Hangout" onClick={() => {
                     this.setState({ modalOpen: true });
                   }}/>
                  <HangoutForm
@@ -56,14 +56,14 @@ export default class HangoutList extends Component {
             results={this.state.results}
             value={this.state.value}
             {...this.props}
-            placeholder="Search Hangouts"
+            placeholder="Search By City or State"
           />
                 </Container>
                 <Grid container >
                   <Grid.Row>
                     {
                         this.props.hangouts.map(hangout =>(
-                            <HangoutCard hangout={hangout} addToApi={this.props.addToApi} {...this.props} key={hangout.id} didVisit={this.props.didVisit} />
+                            <HangoutCard hangout={hangout} addReviewToApi={this.props.addReviewToApi} {...this.props} key={hangout.id} didVisit={this.props.didVisit} />
                          ))
                         }
                   </Grid.Row>

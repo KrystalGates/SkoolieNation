@@ -37,10 +37,22 @@ export default class ApplicationViews extends Component {
    }
    );
 
-   updateApi = (obj, entity) => {
+   updateVisitApi = (obj, entity) => {
     return ApiManager.put(obj, entity)
       .then(() =>
         ApiManager.getDidVisitHangout()
+      )
+      .then(obj => {
+        this.setState({
+          [entity]: obj
+        });
+      });
+  };
+
+   updateApi = (obj, entity) => {
+    return ApiManager.put(obj, entity)
+      .then(() =>
+        ApiManager.all(entity)
       )
       .then(obj => {
         this.setState({
@@ -82,7 +94,7 @@ export default class ApplicationViews extends Component {
                   user.id === parseInt(sessionStorage.getItem("currentUser"))
               );
               return (
-                <Profile {...props} user={user} userVisited={currentUserDidVisit} userDesiredVisit={currentUserDesiredVisit} deleteVisitFromApi={this.deleteVisitFromApi} updateApi={this.updateApi} />
+                <Profile {...props} user={user} updateVisitApi={this.updateVisitApi} userVisited={currentUserDidVisit} userDesiredVisit={currentUserDesiredVisit} deleteVisitFromApi={this.deleteVisitFromApi} updateApi={this.updateApi} />
               );
             } else {
               return <Redirect to="./login" />;
@@ -121,7 +133,7 @@ export default class ApplicationViews extends Component {
                 <HangoutList
                   {...props}
                   hangouts={this.state.hangouts}
-                  addToApi={this.addToApi}
+                  addReviewToApi={this.addReviewToApi}
                   source={source}
                   didVisit={this.state.didVisits}
                 />

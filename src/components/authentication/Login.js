@@ -4,13 +4,15 @@ import CharacterCounter from "react-character-counter";
 import * as firebase from "firebase/app";
 import "firebase/storage";
 
+
 export default class Login extends Component {
   state = {
     username: "",
     email: "",
     password: "",
     aboutMe: "",
-    imgUrl: null
+    imgUrl: null,
+    open: false
   };
 
   storageRef = firebase.storage().ref("profileImage");
@@ -24,7 +26,7 @@ export default class Login extends Component {
   handleLogin = event => {
     event.preventDefault();
     if (this.state.username === "" || this.state.password === "") {
-      alert("Please fill in username and password");
+      window.alert("Please enter username and password")
     }
     let userMatch = this.props.users.find(
       user =>
