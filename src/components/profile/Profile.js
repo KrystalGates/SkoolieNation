@@ -10,6 +10,7 @@ import {
 import AboutMeEdit from "./AboutMe/AboutMeEdit";
 import VisitedDestination from "./destinations/VisitedDestination";
 import DesiredDestination from "./destinations/DesiredDestination";
+import Map from "./map/Map.js"
 
 export default class Profile extends Component {
   state = {
@@ -68,6 +69,7 @@ export default class Profile extends Component {
             <Grid.Row>
               <Grid.Column>
                 <Header>Your Destinations</Header>
+                <Map />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
