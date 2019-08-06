@@ -133,6 +133,7 @@ export default class ApplicationViews extends Component {
                 <HangoutList
                   {...props}
                   hangouts={this.state.hangouts}
+                  addToApi={this.addToApi}
                   addReviewToApi={this.addReviewToApi}
                   source={source}
                   didVisit={this.state.didVisits}

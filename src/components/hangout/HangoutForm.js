@@ -2,13 +2,17 @@ import React, { Component } from 'react'
 import { Button, Form, Modal } from "semantic-ui-react";
 import * as firebase from "firebase/app";
 import "firebase/storage";
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from 'react-places-autocomplete';
 
 export default class HangoutForm extends Component {
     state={
         hangoutName: "",
         address: "",
         latitude: null,
-        longitute: null,
+        longitude: null,
         imgUrl: null
     }
 
@@ -44,7 +48,7 @@ export default class HangoutForm extends Component {
               hangoutName: this.state.hangoutName,
               address: this.state.address,
               latitude: this.state.latitude,
-              longitute: this.state.longitute,
+              longitude: this.state.longitude,
               imgUrl: imageUrl
             }, "hangouts")
             .then(this.props.handleClose)
@@ -55,6 +59,20 @@ export default class HangoutForm extends Component {
         {
           alert("Someone has already added this hangout!");
         }
+      };
+
+      handleChange = address => {
+        this.setState({ address });
+      };
+
+      handleSelect = address => {
+        geocodeByAddress(address)
+          .then(results => getLatLng(results[0]))
+          .then(latLng => {console.log('Success', latLng.lng)
+          this.setState({ longitude: latLng.lng })
+        this.setState({ latitude: latLng.lat})
+        })
+          .catch(error => console.error('Error', error));
       };
 
       // getInitialState =()=> {
@@ -79,16 +97,54 @@ export default class HangoutForm extends Component {
                 label="Name"
                 type="text"
               />
-                <Form.Input
+                {/* <Form.Input
                 onChange={this.handleFieldChange}
                 id="address"
                 label="Address"
                 type="address"
-              />
+              /> */}
+                    <PlacesAutocomplete
+        value={this.state.address}
+        onChange={this.handleChange}
+        onSelect={this.handleSelect}
+      >
+        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+          <div>
+            <input
+              {...getInputProps({
+                placeholder: 'Search Places ...',
+                className: 'location-search-input',
+              })}
+            />
+            <div className="autocomplete-dropdown-container">
+              {loading && <div>Loading...</div>}
+              {suggestions.map(suggestion => {
+                const className = suggestion.active
+                  ? 'suggestion-item--active'
+                  : 'suggestion-item';
+                // inline style for demonstration purpose
+                const style = suggestion.active
+                  ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+                  : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                return (
+                  <div
+                    {...getSuggestionItemProps(suggestion, {
+                      className,
+                      style,
+                    })}
+                  >
+                    <span>{suggestion.description}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </PlacesAutocomplete>
               <Form.Field
                     control="input"
                     type="file"
-                    label="Photo"
+                    label="Upload a Photo"
                     onChange={e => this.setState({ imgUrl: e.target.files[0] })}
                   />
                     <Button content='Save' primary  />
