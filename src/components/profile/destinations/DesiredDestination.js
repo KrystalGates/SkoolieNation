@@ -59,7 +59,7 @@ export default class DesiredDestination extends Component {
                 this.setState({ modalVisitedEditOpen: true });
               }}
             />
-            <EditVisitDestination updateApi={this.props.updateApi} visitId={this.props.visit.id} modalVisitedEditOpen={this.state.modalVisitedEditOpen}
+            <EditVisitDestination updateVisitApi={this.props.updateVisitApi} visitId={this.props.visit.id} modalVisitedEditOpen={this.state.modalVisitedEditOpen}
             handleClose={() => {
               this.setState({ modalVisitedEditOpen: false });
             }}/>

@@ -17,12 +17,12 @@
       "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/profileImage%2FChristian?alt=media&token=156a0dc7-7879-44d3-8aab-ee4a80b644d7"
     },
     {
+      "id": 3,
       "username": "SherBear",
       "email": "sher@gmail.com",
       "password": "123",
-      "aboutMe": "It is awesome!",
-      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/profileImage%2FSherBear?alt=media&token=0cf7ec0d-3e39-4096-ae17-aa86076daba9",
-      "id": 3
+      "aboutMe": "It is awesome! lksdnla;wk .   \n\n\nyoyo\n\n\nyoyoyoy",
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/profileImage%2FSherBear?alt=media&token=0cf7ec0d-3e39-4096-ae17-aa86076daba9"
     }
   ],
   "hangouts": [
@@ -336,7 +336,7 @@
       "id": 21,
       "userId": 3,
       "hangoutId": 4,
-      "didVisit": false
+      "didVisit": true
     }
   ]
 }
