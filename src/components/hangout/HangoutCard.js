@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, Card, Image } from "semantic-ui-react";
 import ReviewForm from "../review/ReviewForm";
 import HangoutVisitedForm from "./HangoutVisitedForm";
+import { Popup } from "react-mapbox-gl";
 
 export default class HangoutCard extends Component {
   state = {
