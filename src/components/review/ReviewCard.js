@@ -3,7 +3,7 @@ import { List, Button, Image } from "semantic-ui-react";
 import ReviewCardDelete from "./ReviewCardDelete";
 import ReviewFormEdit from "./ReviewFormEdit";
 import moment from "moment";
-import {withRouter} from "react-router"
+import { withRouter } from "react-router";
 
 class ReviewCard extends Component {
   state = {
@@ -13,12 +13,12 @@ class ReviewCard extends Component {
 
   btnEnabled = () => {
     let currentUser = parseInt(sessionStorage.getItem("currentUser"));
-    let str = false
+    let str = false;
     if (this.props.review.user.id === currentUser) {
-      str=true
+      str = true;
     }
-    return str
-  }
+    return str;
+  };
 
   render() {
     const date = moment(this.props.review.date).format("MMM Do YYYY");
@@ -38,7 +38,9 @@ class ReviewCard extends Component {
             Restrictions: {this.props.review.restrictions}
           </List.Description>
           <List.Description>
-          <div style={{whiteSpace: "pre"}}>Review: {this.props.review.review} </div>
+            <div style={{ whiteSpace: "pre" }}>
+              Review: {this.props.review.review}{" "}
+            </div>
           </List.Description>
           <Button
             content="Edit"
@@ -69,7 +71,7 @@ class ReviewCard extends Component {
             }}
           />
           <ReviewCardDelete
-          hangoutId={this.props.hangoutId}
+            hangoutId={this.props.hangoutId}
             modalDeleteOpen={this.state.modalDeleteOpen}
             handleClose={() => {
               this.setState({ modalDeleteOpen: false });
@@ -83,4 +85,4 @@ class ReviewCard extends Component {
   }
 }
 
-export default withRouter(ReviewCard)
+export default withRouter(ReviewCard);

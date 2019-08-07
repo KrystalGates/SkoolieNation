@@ -32,9 +32,7 @@ export default class ReviewFormEdit extends Component {
         review: this.state.review,
         date: this.state.date
       };
-      this.props.updateApi(editReview, "reviews").then(
-        this.props.handleClose
-      );
+      this.props.updateApi(editReview, "reviews").then(this.props.handleClose);
     }
   };
 

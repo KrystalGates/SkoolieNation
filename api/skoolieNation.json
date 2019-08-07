@@ -67,7 +67,16 @@
       "id": 5
     }
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "userId": 3,
+      "hangoutId": 1,
+      "restrictions": "great",
+      "review": "hello",
+      "date": 1565195948114,
+      "id": 1
+    }
+  ],
   "didVisits": [
     {
       "userId": 3,

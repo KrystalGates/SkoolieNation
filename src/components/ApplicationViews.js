@@ -12,7 +12,6 @@ export default class ApplicationViews extends Component {
   state = {
     users: [],
     hangouts: [],
-    // reviews: [],
     didVisits: []
   };
 
@@ -21,27 +20,23 @@ export default class ApplicationViews extends Component {
 
     ApiManager.all("users").then(users => (newState.users = users));
     ApiManager.all("hangouts").then(hangouts => (newState.hangouts = hangouts));
-    // ApiManager.all("reviews").then(reviews => (newState.reviews = reviews));
     ApiManager.getDidVisitHangout()
       .then(didVisits => (newState.didVisits = didVisits))
       .then(() => this.setState(newState));
   }
 
-    addToApi = (obj, entity) =>
+  addToApi = (obj, entity) =>
     ApiManager.post(obj, entity)
-   .then(() => ApiManager.all(entity))
-   .then(obj =>{
-       this.setState({
-       [entity]: obj
-     })
-   }
-   );
+      .then(() => ApiManager.all(entity))
+      .then(obj => {
+        this.setState({
+          [entity]: obj
+        });
+      });
 
-   updateVisitApi = (obj, entity) => {
+  updateVisitApi = (obj, entity) => {
     return ApiManager.put(obj, entity)
-      .then(() =>
-        ApiManager.getDidVisitHangout()
-      )
+      .then(() => ApiManager.getDidVisitHangout())
       .then(obj => {
         this.setState({
           [entity]: obj
@@ -49,11 +44,9 @@ export default class ApplicationViews extends Component {
       });
   };
 
-   updateApi = (obj, entity) => {
+  updateApi = (obj, entity) => {
     return ApiManager.put(obj, entity)
-      .then(() =>
-        ApiManager.all(entity)
-      )
+      .then(() => ApiManager.all(entity))
       .then(obj => {
         this.setState({
           [entity]: obj
@@ -61,40 +54,56 @@ export default class ApplicationViews extends Component {
       });
   };
 
-
-    addReviewToApi = (obj, entity) =>
+  addReviewToApi = (obj, entity) =>
     ApiManager.post(obj, entity)
-   .then(() => ApiManager.getDidVisitHangout())
-   .then(obj =>{
-       this.setState({
-       [entity]: obj
-     })
-   }
-   );
+      .then(() => ApiManager.getDidVisitHangout())
+      .then(obj => {
+        this.setState({
+          [entity]: obj
+        });
+      });
 
-   deleteVisitFromApi = (obj, entity) =>
-   ApiManager.delete(obj, entity)
-     .then(()=>ApiManager.getDidVisitHangout())
-     .then(obj => {
-       this.setState({ [entity]: obj });
-     });
+  deleteVisitFromApi = (obj, entity) =>
+    ApiManager.delete(obj, entity)
+      .then(() => ApiManager.getDidVisitHangout())
+      .then(obj => {
+        this.setState({ [entity]: obj });
+      });
 
   render() {
     return (
       <React.Fragment>
-      <Route
+        <Route
           exact
           path="/"
           render={props => {
             if (this.isAuthenticated()) {
-              let currentUserDidVisit= this.state.didVisits.filter(hangout => hangout.userId === parseInt(sessionStorage.getItem("currentUser")) && hangout.didVisit === true)
-              let currentUserDesiredVisit=this.state.didVisits.filter(hangout => hangout.userId === parseInt(sessionStorage.getItem("currentUser")) && hangout.didVisit === false)
+              let currentUserDidVisit = this.state.didVisits.filter(
+                hangout =>
+                  hangout.userId ===
+                    parseInt(sessionStorage.getItem("currentUser")) &&
+                  hangout.didVisit === true
+              );
+              let currentUserDesiredVisit = this.state.didVisits.filter(
+                hangout =>
+                  hangout.userId ===
+                    parseInt(sessionStorage.getItem("currentUser")) &&
+                  hangout.didVisit === false
+              );
               let user = this.state.users.filter(
                 user =>
                   user.id === parseInt(sessionStorage.getItem("currentUser"))
               );
               return (
-                <Profile {...props} user={user} updateVisitApi={this.updateVisitApi} userVisited={currentUserDidVisit} userDesiredVisit={currentUserDesiredVisit} deleteVisitFromApi={this.deleteVisitFromApi} updateApi={this.updateApi} />
+                <Profile
+                  {...props}
+                  user={user}
+                  updateVisitApi={this.updateVisitApi}
+                  userVisited={currentUserDidVisit}
+                  userDesiredVisit={currentUserDesiredVisit}
+                  deleteVisitFromApi={this.deleteVisitFromApi}
+                  updateApi={this.updateApi}
+                />
               );
             } else {
               return <Redirect to="./login" />;
@@ -106,13 +115,28 @@ export default class ApplicationViews extends Component {
           path="/:userId(\d+)"
           render={props => {
             if (this.isAuthenticated()) {
-              let userDidVisit= this.state.didVisits.filter(hangout => hangout.userId === parseInt(props.match.params.userId) && hangout.didVisit === true)
-              let userDesiredVisit=this.state.didVisits.filter(hangout => hangout.userId === parseInt(props.match.params.userId) && hangout.didVisit === false)
-              let users = this.state.users.filter(
-                user =>
-                  user.id === parseInt(props.match.params.userId)
+              let userDidVisit = this.state.didVisits.filter(
+                hangout =>
+                  hangout.userId === parseInt(props.match.params.userId) &&
+                  hangout.didVisit === true
               );
-              return <Profile {...props} user={users} updateApi={this.updateApi} userVisited={userDidVisit} userDesiredVisit={userDesiredVisit} />
+              let userDesiredVisit = this.state.didVisits.filter(
+                hangout =>
+                  hangout.userId === parseInt(props.match.params.userId) &&
+                  hangout.didVisit === false
+              );
+              let users = this.state.users.filter(
+                user => user.id === parseInt(props.match.params.userId)
+              );
+              return (
+                <Profile
+                  {...props}
+                  user={users}
+                  updateApi={this.updateApi}
+                  userVisited={userDidVisit}
+                  userDesiredVisit={userDesiredVisit}
+                />
+              );
             } else {
               return <Redirect to="./login" />;
             }
@@ -148,9 +172,7 @@ export default class ApplicationViews extends Component {
           path="/hangouts/:hangoutId(\d+)"
           render={props => {
             if (this.isAuthenticated()) {
-              return (
-                <HangoutReview {...props}  />
-              );
+              return <HangoutReview {...props} />;
             } else {
               return <Redirect to="./login" />;
             }

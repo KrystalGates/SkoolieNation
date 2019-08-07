@@ -67,32 +67,38 @@ export default class Map extends Component {
           {this.props.userVisited.map(marker => {
             return (
               <Marker
-                key={marker.hangout.id}
                 latitude={marker.hangout.latitude}
                 longitude={marker.hangout.longitude}
                 offsetLeft={-5}
                 offsetTop={-10}
               >
-              <div className='mapMarkerStyleVisited' onMouseEnter={() => this.setState({ popupInfo: true })}
-              onMouseLeave={() => this.setState({ popupInfo: null })}/>
-          {this.renderPopup(marker)}
+                <div
+                  key={marker.hangout.id}
+                  className="mapMarkerStyleVisited"
+                  onMouseEnter={() => this.setState({ popupInfo: true })}
+                  onMouseLeave={() => this.setState({ popupInfo: null })}
+                />
+                {this.renderPopup(marker)}
               </Marker>
             );
           })}
           {this.props.userDesiredVisit.map(marker => {
             return (
-                <div>
-              <Marker
-                key={marker.hangout.id}
-                latitude={marker.hangout.latitude}
-                longitude={marker.hangout.longitude}
-                offsetLeft={-20}
-                offsetTop={-10}
-              >
-                 <div className='mapMarkerStyleDesired' onMouseEnter={() => this.setState({ popupInfo: true })}
-              onMouseLeave={() => this.setState({ popupInfo: null })}/>
-          {this.renderPopup(marker)}
-              </Marker>
+              <div>
+                <Marker
+                  latitude={marker.hangout.latitude}
+                  longitude={marker.hangout.longitude}
+                  offsetLeft={-20}
+                  offsetTop={-10}
+                >
+                  <div
+                    key={marker.hangout.id}
+                    className="mapMarkerStyleDesired"
+                    onMouseEnter={() => this.setState({ popupInfo: true })}
+                    onMouseLeave={() => this.setState({ popupInfo: null })}
+                  />
+                  {this.renderPopup(marker)}
+                </Marker>
               </div>
             );
           })}
