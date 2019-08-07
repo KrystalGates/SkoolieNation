@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ApiManager from "../../modules/ApiManager";
-import { Container, List, Card, Image } from "semantic-ui-react";
+import { Container, List, Card, Image, Button } from "semantic-ui-react";
 import ReviewCard from "../review/ReviewCard";
 
 export default class HangoutReview extends Component {
@@ -43,6 +43,7 @@ export default class HangoutReview extends Component {
   render() {
     return (
       <Container>
+      <Button icon="arrow left" onClick={()=>{this.props.history.push("/hangouts")}} />
         <Card key={this.state.hangout.id} >
           <Image size="small" rounded src={this.state.hangout.imgUrl} />
           <Card.Header>{this.state.hangout.hangoutName}</Card.Header>

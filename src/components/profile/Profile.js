@@ -10,7 +10,9 @@ import {
 import AboutMeEdit from "./AboutMe/AboutMeEdit";
 import VisitedDestination from "./destinations/VisitedDestination";
 import DesiredDestination from "./destinations/DesiredDestination";
-import Map from "./map/Map.js"
+import Map from "./map/Map.js";
+import location from "./map/location.svg";
+import locationPin from "./map/locationPin.svg";
 
 export default class Profile extends Component {
   state = {
@@ -44,7 +46,7 @@ export default class Profile extends Component {
               </Grid.Column>
               <Grid.Column>
                 <Header>About My Skoolie</Header>
-                <div style={{whiteSpace: "pre"}}>{userinfo.aboutMe} </div>
+                <div style={{ whiteSpace: "pre" }}>{userinfo.aboutMe} </div>
                 <Button
                   content="Edit"
                   icon="signup"
@@ -69,23 +71,49 @@ export default class Profile extends Component {
             <Grid.Row>
               <Grid.Column>
                 <Header>Your Destinations</Header>
-                <Map />
+                <Map
+                  userDesiredVisit={this.props.userDesiredVisit}
+                  userVisited={this.props.userVisited}
+                />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
               <Grid.Column>
                 <List>
-                  <Header>Desired Destination</Header>
+                  <Header>
+                    Desired Destination
+                    <Image
+                      size="mini"
+                      src={location}
+                      style={{ marginRight: "1.5em" }}
+                    />
+                  </Header>
                   {this.props.userDesiredVisit.map(visit => (
-                    <DesiredDestination visit={visit} key={visit.id} deleteVisitFromApi={this.props.deleteVisitFromApi} updateVisitApi={this.props.updateVisitApi} />
+                    <DesiredDestination
+                      visit={visit}
+                      key={visit.id}
+                      deleteVisitFromApi={this.props.deleteVisitFromApi}
+                      updateVisitApi={this.props.updateVisitApi}
+                    />
                   ))}
                 </List>
               </Grid.Column>
               <Grid.Column>
                 <List>
-                  <Header>Visited Destinations</Header>
+                  <Header>
+                    Visited Destinations{" "}
+                    <Image
+                      size="mini"
+                      src={locationPin}
+                      style={{ marginRight: "1.5em" }}
+                    />
+                  </Header>
                   {this.props.userVisited.map(visit => (
-                    <VisitedDestination visit={visit} key={visit.id} deleteVisitFromApi={this.props.deleteVisitFromApi} />
+                    <VisitedDestination
+                      visit={visit}
+                      key={visit.id}
+                      deleteVisitFromApi={this.props.deleteVisitFromApi}
+                    />
                   ))}
                 </List>
               </Grid.Column>
