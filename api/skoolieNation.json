@@ -33,8 +33,71 @@
       "longitude": -86.7260018,
       "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Fnss?alt=media&token=bfa0f57f-6a90-4024-bc9d-f9b2519e3e31",
       "id": 1
+    },
+    {
+      "hangoutName": "my house",
+      "address": "921 Anita Drive, Old Hickory, TN, USA",
+      "latitude": 36.2617358,
+      "longitude": -86.66557469999998,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Fmy%20house?alt=media&token=2821ae98-2fca-42ba-8ad0-b3b56a483ccd",
+      "id": 2
+    },
+    {
+      "hangoutName": "jakes house",
+      "address": "911 Airport Center Drive, Nashville, TN, USA",
+      "latitude": 36.1462784,
+      "longitude": -86.66343010000003,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Fjakes%20house?alt=media&token=112108c6-64b9-4c92-872a-46f5ddcd3c69",
+      "id": 3
+    },
+    {
+      "hangoutName": "sam",
+      "address": "321 Mcmillin Street, Nashville, TN, USA",
+      "latitude": 36.158949,
+      "longitude": -86.7958547,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Fsam?alt=media&token=780b2c54-6822-40d9-9274-a4488a580e19",
+      "id": 4
+    },
+    {
+      "hangoutName": "lake",
+      "address": "Old Hickory Lake, Tennessee, USA",
+      "latitude": 36.3171793,
+      "longitude": -86.4819637,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Flake?alt=media&token=0b82c923-ff2b-48d4-a282-263a0b9f84b6",
+      "id": 5
     }
   ],
   "reviews": [],
-  "didVisits": []
+  "didVisits": [
+    {
+      "userId": 3,
+      "hangoutId": 1,
+      "didVisit": true,
+      "id": 1
+    },
+    {
+      "userId": 3,
+      "hangoutId": 2,
+      "didVisit": true,
+      "id": 2
+    },
+    {
+      "userId": 3,
+      "hangoutId": 3,
+      "didVisit": false,
+      "id": 3
+    },
+    {
+      "userId": 3,
+      "hangoutId": 4,
+      "didVisit": false,
+      "id": 4
+    },
+    {
+      "userId": 3,
+      "hangoutId": 5,
+      "didVisit": false,
+      "id": 5
+    }
+  ]
 }

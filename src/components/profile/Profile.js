@@ -69,7 +69,7 @@ export default class Profile extends Component {
             <Grid.Row>
               <Grid.Column>
                 <Header>Your Destinations</Header>
-                <Map />
+                <Map userDesiredVisit={this.props.userDesiredVisit} userVisited={this.props.userVisited} />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
