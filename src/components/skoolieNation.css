@@ -1,0 +1,25 @@
+body {
+    background: #8EE48F;
+    color: #05386B;
+}
+.ui.segment {
+background:#8EE48F;
+}
+.ui.menu{
+    background: #5CDB95;
+    /* box-shadow: none;
+    border: none; */
+    color: #EDF5D1
+}
+.ui.menu.item{
+    border: none;
+
+}
+
+.ui.header{
+    color: #EDF5D1
+}
+.ui.button{
+    background: #379683;
+    color: #EDF5D1
+}

@@ -17,13 +17,13 @@ handleLogout = (event)=>{
     render() {
         return (
 
-        <Menu>
+        <Menu >
             <Container>
-                <Menu.Item as={Link} to="/" header>
+                <Menu.Item  style={{color: "#EDF5D1"}}as={Link} to="/" header>
                 <Image size="mini" src={bus} style={{ marginRight: "1.5em" }} />Skoolie Nation
                 </Menu.Item>
-                    <Menu.Item  as={Link} to="/hangouts">Hangouts</Menu.Item>
-                    <Menu.Item header position ="right" as={Link} onClick={this.handleLogout} to="/login">Logout</Menu.Item>
+                    <Menu.Item style={{color: "#EDF5D1"}} as={Link} to="/hangouts">Hangouts</Menu.Item>
+                    <Menu.Item style={{color: "#EDF5D1"}} header position ="right" as={Link} onClick={this.handleLogout} to="/login">Logout</Menu.Item>
             </Container>
         </Menu>
         )

@@ -19,7 +19,7 @@ export default class Map extends Component {
       zoom: 3,
       bearing: 0,
       pitch: 0,
-      width: "50%",
+      width: "100%",
       height: 500
     },
     popupInfo: null
@@ -53,10 +53,10 @@ export default class Map extends Component {
   render() {
     const { viewport } = this.state;
     return (
-      <ReactMapGL
+      <ReactMapGL 
         {...viewport}
         onViewportChange={viewport => this.setState({ viewport })}
-        mapStyle="mapbox://styles/mapbox/streets-v10"
+        mapStyle="mapbox://styles/krystalsabrina14/cjz1qzllg2lc11cldki59nyl0"
         mapboxApiAccessToken={TOKEN}
         children={this.props.children}
       >
