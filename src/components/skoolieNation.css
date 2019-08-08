@@ -22,3 +22,6 @@ body {
 .ui.menu.item {
   border: none;
 }
+.ui.placeholder.segment.login{
+  background: #5cdb95;
+}

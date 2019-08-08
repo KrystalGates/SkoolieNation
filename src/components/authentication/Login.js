@@ -102,9 +102,10 @@ export default class Login extends Component {
                 iconPosition="left"
                 label="Password"
                 type="password"
+                placeholder="Password"
               />
 
-              <Button content="Login" primary />
+              <Button content="Login" />
             </Form>
           </Grid.Column>
 

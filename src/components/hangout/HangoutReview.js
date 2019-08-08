@@ -13,7 +13,7 @@ export default class HangoutReview extends Component {
     const newState = {};
 
     ApiManager.getReviewsFromApi(this.props.match.params.hangoutId).then(
-      reviews => (newState.reviews = reviews)
+      reviews=>(newState.reviews = reviews)
     );
     ApiManager.get("hangouts", this.props.match.params.hangoutId)
       .then(hangout => (newState.hangout = hangout))
@@ -43,6 +43,8 @@ export default class HangoutReview extends Component {
   };
 
   render() {
+    console.log(this.state.hangout)
+    console.log(this.state.reviews)
     return (
       <Grid columns={2}>
         <Grid.Column style={{ width: "10%", marginLeft: "2em" }}>

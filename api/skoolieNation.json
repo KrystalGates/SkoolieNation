@@ -17,12 +17,12 @@
       "id": 2
     },
     {
+      "id": 3,
       "username": "HighFiveSloth",
       "email": "highfivesloth@gmail.com",
       "password": "123",
-      "aboutMe": "💑 Travis & Destoni\nFull time traveling skoolie dwellers\n📋 www.slothhighfive.com",
-      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/profileImage%2FHighFiveSloth?alt=media&token=f89d79b6-1ba1-49e3-87e2-c337ec8909cc",
-      "id": 3
+      "aboutMe": "💑 Travis & Destoni\nFull time traveling skoolie dwellers!\n📋 www.slothhighfive.com",
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/profileImage%2FHighFiveSloth?alt=media&token=f89d79b6-1ba1-49e3-87e2-c337ec8909cc"
     },
     {
       "id": 4,
@@ -49,6 +49,38 @@
       "longitude": -113.37342360000002,
       "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2FSand%20Hollow?alt=media&token=129e00aa-4480-4ff8-aaf0-48cf21284029",
       "id": 2
+    },
+    {
+      "hangoutName": "Royal Palm RV Park",
+      "address": "163 Cunningham Ln, Big Pine Key, FL 33043, USA",
+      "latitude": 24.6725691,
+      "longitude": -81.35131999999999,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2FRoyal%20Palm%20RV%20Park?alt=media&token=200c36e2-b1db-4786-b906-0fd8b4ef29ca",
+      "id": 3
+    },
+    {
+      "hangoutName": "Rock Island State Park",
+      "address": "Rock Island State Park, Beach Road, Rock Island, TN, USA",
+      "latitude": 35.8116589,
+      "longitude": -85.6439861,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2FRock%20Island%20State%20Park?alt=media&token=90e65aba-261a-425f-b539-facfa060cfe6",
+      "id": 4
+    },
+    {
+      "hangoutName": "Yosemite Lakes RV Resort",
+      "address": "Yosemite Lakes RV Resort, Hardin Flat Road, Groveland, CA, USA",
+      "latitude": 37.8147961,
+      "longitude": -119.9388578,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2FYosemite%20Lakes%20RV%20Resort?alt=media&token=a4d13e4e-e287-4d35-bd88-61b090fd9e95",
+      "id": 5
+    },
+    {
+      "hangoutName": "Yellow Stone Grizzly RV Park",
+      "address": "210 S Electric St, West Yellowstone, MT 59758, USA",
+      "latitude": 44.65620699999999,
+      "longitude": -111.10756609999999,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2FYellow%20Stone%20Grizzly%20RV%20Park?alt=media&token=ee4abfcb-5e7d-45ef-a74b-28f6b3ce933e",
+      "id": 6
     }
   ],
   "reviews": [
@@ -59,7 +91,76 @@
       "review": "One of our favorite spots! So beautiful here!",
       "date": 1565284814883,
       "id": 1
+    },
+    {
+      "id": 2,
+      "userId": 4,
+      "hangoutId": 2,
+      "restrictions": "small fee",
+      "review": "its \"boondock\" style camping right at the sandy beach, \nbut inside of a state park (so there is a fee) ... but \nplus side is you can dump tanks & trash, refill fresh \nwater and use the restrooms 😉",
+      "date": 1565285419170
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "hangoutId": 1,
+      "restrictions": "Boondocking",
+      "review": "This place was so amazing! No one around for awhile!!!",
+      "date": 1565286599435
+    },
+    {
+      "id": 4,
+      "userId": 3,
+      "hangoutId": 2,
+      "restrictions": "Small fee!",
+      "review": "This place is amazing! water and trash available.\nWe plan to come back soon!",
+      "date": 1565292290783
+    },
+    {
+      "id": 5,
+      "userId": 3,
+      "hangoutId": 3,
+      "restrictions": "Can't have yellow school bus!",
+      "review": "They require you to paint your bus but other \nthen that we had a great time! The views and \nsunset are gorgeous!",
+      "date": 1565292432221
     }
   ],
-  "didVisits": []
+  "didVisits": [
+    {
+      "id": 2,
+      "userId": 1,
+      "hangoutId": 2,
+      "didVisit": true
+    },
+    {
+      "userId": 1,
+      "hangoutId": 6,
+      "didVisit": false,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "hangoutId": 5,
+      "didVisit": false,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "hangoutId": 1,
+      "didVisit": true,
+      "id": 5
+    },
+    {
+      "userId": 3,
+      "hangoutId": 3,
+      "didVisit": true,
+      "id": 6
+    },
+    {
+      "userId": 3,
+      "hangoutId": 1,
+      "didVisit": false,
+      "id": 8
+    }
+  ]
 }

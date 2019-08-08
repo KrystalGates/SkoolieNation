@@ -3,6 +3,7 @@ import _ from "lodash";
 import { Header, Container, Button, Search, Card } from "semantic-ui-react";
 import HangoutForm from "./HangoutForm";
 import HangoutCard from "./HangoutCard";
+import { when } from "q";
 
 const initialState = {
   modalOpen: false,
@@ -16,8 +17,10 @@ export default class HangoutList extends Component {
   state = initialState;
 
   handleResultSelect = (e, { result }) => {
-    this.setState({ value: result.title, hangoutId: result.id });
-    this.props.history.push(`/hangouts/${this.state.hangoutId}`);
+    this.setState({ value: result.title, hangoutId: result.id },
+      () =>  this.props.history.push(`/hangouts/${result.id}`)
+    );
+
   };
 
   handleSearchChange = (e, { value }) => {

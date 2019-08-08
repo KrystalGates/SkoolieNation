@@ -40,7 +40,7 @@ class ReviewCard extends Component {
           </div>
           <div>
 
-          <List.Header style={{color: "#05386B", fontSize: "1.5em"}}>{this.props.review.user.username}</List.Header>
+          <List.Header style={{color: "#05386B", fontSize: "1.5em", alignSelf:"flex-end"}}>{this.props.review.user.username}</List.Header>
           </div>
           </div>
           <List.Description style={{color: "#05386B", marginTop:"1em"}}><span style={{fontWeight: "bold"}}>Date Posted:</span> {date} </List.Description>
