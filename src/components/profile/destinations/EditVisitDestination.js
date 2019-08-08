@@ -34,12 +34,12 @@ export default class EditVisitDestination extends Component {
   render() {
     return (
       <Modal open={this.props.modalVisitedEditOpen}>
-        <Header content="Have you visited this Destination?" />
+        <Header style={{color: "#05386B"}} content="Have you visited this Destination?" />
         <Modal.Actions>
-          <Button color="red" onClick={this.props.handleClose}>
+          <Button onClick={this.props.handleClose}>
             <Icon name="remove" /> No
           </Button>
-          <Button color="green" onClick={this.updateVisit}>
+          <Button onClick={this.updateVisit}>
             <Icon name="checkmark" /> Yes
           </Button>
         </Modal.Actions>

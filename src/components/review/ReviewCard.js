@@ -31,17 +31,21 @@ class ReviewCard extends Component {
             this.props.history.push(`/${this.props.review.userId}`);
           }}
         />
-        <List.Content>
-          <List.Header>{this.props.review.user.username}</List.Header>
-          <List.Description>Date Posted: {date} </List.Description>
-          <List.Description>
-            Restrictions: {this.props.review.restrictions}
+        <List.Content style={{marginBottom: "1em"}}>
+          <List.Header style={{color: "#05386B", fontSize: "1.5em"}}>{this.props.review.user.username}</List.Header>
+          <List.Description style={{color: "#05386B", marginTop:"1em"}}><span style={{fontWeight: "bold"}}>Date Posted:</span> {date} </List.Description>
+          <List.Description style={{color: "#05386B"}}>
+           <span style={{fontWeight: "bold"}}>Restrictions:</span> Restrictions: {this.props.review.restrictions}
           </List.Description>
           <List.Description>
-            <div style={{ whiteSpace: "pre" }}>
-              Review: {this.props.review.review}{" "}
+            <div style={{ whiteSpace: "pre", color: "#05386B" }}>
+            <span style={{fontWeight: "bold"}}>Review:</span> {this.props.review.review}{" "}
             </div>
           </List.Description>
+          <div style={{display: "flex", flexDirection: "row", marginTop: "1em"}}>
+
+          <div>
+
           <Button
             content="Edit"
             size="small"
@@ -60,6 +64,10 @@ class ReviewCard extends Component {
               this.setState({ modalEditOpen: false });
             }}
           />
+          </div>
+          <div>
+          </div>
+
           <Button
             content="Delete"
             size="small"
@@ -79,6 +87,7 @@ class ReviewCard extends Component {
             deleteReviewFromApi={this.props.deleteReviewFromApi}
             reviewId={this.props.review.id}
           />
+          </div>
         </List.Content>
       </List.Item>
     );

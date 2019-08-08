@@ -36,19 +36,21 @@ export default class ReviewForm extends Component {
   render() {
     return (
       <Modal open={this.props.modalOpen} size="small">
-        <Modal.Header>New Review</Modal.Header>
+        <Modal.Header style={{color: "#05386B"}}>New Review</Modal.Header>
         <Modal.Content>
           <Form onSubmit={this.handleNewReview}>
-            <CharacterCounter value={this.state.restrictions} maxLength={150}>
+            <CharacterCounter value={this.state.restrictions} maxLength={150} style={{color: "#05386B"}}>
               <Form.TextArea
                 onChange={this.handleFieldChange}
                 id="restrictions"
                 label="Skoolie Restrictions"
                 type="text"
+                style={{color: "#05386B"}}
               />
             </CharacterCounter>
             <CharacterCounter value={this.state.review} maxLength={350}>
               <Form.TextArea
+              style={{color: "#05386B"}}
                 onChange={this.handleFieldChange}
                 id="review"
                 label="Review"

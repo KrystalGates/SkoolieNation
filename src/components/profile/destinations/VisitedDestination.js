@@ -18,7 +18,7 @@ export default class VisitedDestination extends Component {
 
   render() {
     return (
-      <List.Item>
+      <List.Item style={{marginBottom: "1em"}}>
         <Image
           rounded
           size="tiny"
@@ -28,8 +28,8 @@ export default class VisitedDestination extends Component {
           }}
         />
         <List.Content>
-          <List.Header>{this.props.visit.hangout.hangoutName}</List.Header>
-          <List.Description>
+          <List.Header style={{color: "#05386B", fontWeight: "bold", fontSize: "1em", marginBottom: ".5em"}}>{this.props.visit.hangout.hangoutName}</List.Header>
+          <List.Description style={{color: "#05386B", marginBottom: ".5em"}}>
             {this.props.visit.hangout.address}
           </List.Description>
           <Button

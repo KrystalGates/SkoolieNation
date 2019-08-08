@@ -1,0 +1,24 @@
+body {
+  background: #8ee48f;
+  color: #05386b;
+}
+.ui.segment {
+  background: #8ee48f;
+}
+.ui.menu {
+  background: #5cdb95;
+  color: #edf5d1;
+}
+.label{
+    color: #05386B
+}
+.ui.button {
+  background: #379683;
+  color: #edf5d1;
+}
+.ui.header {
+  color: #edf5d1;
+}
+.ui.menu.item {
+  border: none;
+}

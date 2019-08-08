@@ -1,5 +1,5 @@
 .mapMarkerStyleVisited {
-    background-image: url('locationPin.svg');
+    background-image: url('visited.png');
     background-size: cover;
     width: 30px;
     height: 30px;
@@ -7,7 +7,7 @@
     cursor: pointer;
   }
 .mapMarkerStyleDesired {
-    background-image: url('location.svg');
+    background-image: url('desired.png');
     background-size: cover;
     width: 30px;
     height: 30px;

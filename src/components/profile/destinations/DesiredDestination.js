@@ -20,7 +20,7 @@ export default class DesiredDestination extends Component {
 
   render() {
     return (
-      <List.Item>
+      <List.Item style={{marginBottom: "1em"}}>
         <Image
           rounded
           size="tiny"
@@ -30,10 +30,14 @@ export default class DesiredDestination extends Component {
           }}
         />
         <List.Content>
-          <List.Header>{this.props.visit.hangout.hangoutName}</List.Header>
-          <List.Description>
+          <List.Header style={{color: "#05386B", fontWeight: "bold", fontSize: "1em", marginBottom: ".5em"}}>{this.props.visit.hangout.hangoutName}</List.Header>
+          <List.Description style={{color: "#05386B", marginBottom: ".5em"}}>
             {this.props.visit.hangout.address}
           </List.Description>
+          <div style={{  display: "flex",
+  flexDirection: "row"}}>
+          <div>
+
           <Button
             content="Remove"
             style={{
@@ -51,6 +55,11 @@ export default class DesiredDestination extends Component {
             deleteVisitFromApi={this.props.deleteVisitFromApi}
             didVisitId={this.props.visit.id}
           />
+          </div>
+
+
+<div>
+
           <Button
             content="Move to visited"
             style={{
@@ -60,6 +69,8 @@ export default class DesiredDestination extends Component {
               this.setState({ modalVisitedEditOpen: true });
             }}
           />
+
+
           <EditVisitDestination
             updateVisitApi={this.props.updateVisitApi}
             visitId={this.props.visit.id}
@@ -68,6 +79,8 @@ export default class DesiredDestination extends Component {
               this.setState({ modalVisitedEditOpen: false });
             }}
           />
+</div>
+          </div>
         </List.Content>
       </List.Item>
     );
