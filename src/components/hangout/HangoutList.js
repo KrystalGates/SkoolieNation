@@ -16,8 +16,10 @@ export default class HangoutList extends Component {
   state = initialState;
 
   handleResultSelect = (e, { result }) => {
-    this.setState({ value: result.title, hangoutId: result.id });
-    this.props.history.push(`/hangouts/${this.state.hangoutId}`);
+    this.setState({ value: result.title, hangoutId: result.id },
+      () =>  this.props.history.push(`/hangouts/${result.id}`)
+    );
+
   };
 
   handleSearchChange = (e, { value }) => {

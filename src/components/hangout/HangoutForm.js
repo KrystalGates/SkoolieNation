@@ -25,7 +25,6 @@ export default class HangoutForm extends Component {
   };
 
   handleNewHangout = event => {
-    event.preventDefault();
     let hangoutMatch = this.props.hangouts.filter(
       hangout =>
         hangout.address === this.state.address ||
@@ -111,7 +110,6 @@ export default class HangoutForm extends Component {
                       const className = suggestion.active
                         ? "suggestion-item--active"
                         : "suggestion-item";
-                      // inline style for demonstration purpose
                       const style = suggestion.active
                         ? { backgroundColor: "#fafafa", cursor: "pointer" }
                         : { backgroundColor: "#ffffff", cursor: "pointer" };

@@ -20,14 +20,23 @@ export default class Profile extends Component {
     modalOpen: false
   };
 
-  componentDidMount() {
-    let currentUser = this.props.user.filter(
-      user => user.id === sessionStorage.getItem("currentUser")
-    );
-    if (currentUser === 0) {
-      this.setState({ editEnabled: true });
+  btnEnabled = () => {
+    let currentUser = parseInt(sessionStorage.getItem("currentUser"));
+    let str = false;
+    if (this.props.user.id === currentUser) {
+      str = true;
     }
-  }
+    return str;
+  };
+
+  // componentDidMount() {
+  //   let currentUser = this.props.user.filter(
+  //     user => user.id === sessionStorage.getItem("currentUser")
+  //   );
+  //   if (currentUser === 0) {
+  //     this.setState({ editEnabled: true });
+  //   }
+  // }
 
   render() {
     return (
@@ -55,7 +64,7 @@ export default class Profile extends Component {
                     icon="signup"
                     size="tiny"
                     style={{
-                      display: !this.state.editEnabled ? "block" : "none"
+                      display: !this.btnEnabled() ? "block" : "none"
                     }}
                     onClick={() => {
                       this.setState({ modalOpen: true });
