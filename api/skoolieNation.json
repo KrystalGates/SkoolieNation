@@ -1,120 +1,65 @@
 {
   "users": [
     {
-      "id": 1,
-      "username": "sam",
-      "email": "sam",
-      "password": "sam",
-      "aboutMe": "kjsbfuawhe\n lisejhfeijfoijwe !!!! !!!!!",
-      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/profileImage%2Fsam?alt=media&token=7a43c2fa-2ac1-430f-94a1-fd44311a5e9d"
+      "username": "submarineWithWheels",
+      "email": "subMarineWithWheels@gmail.com",
+      "password": "123",
+      "aboutMe": "An Aussie girl & her bus 🚌 ",
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/profileImage%2FsubmarineWithWheels?alt=media&token=d425047b-c722-40bf-89d9-030ba666a79a",
+      "id": 1
     },
     {
-      "id": 2,
-      "username": "Christian",
-      "email": "christian@gmail.com",
+      "username": "LittleHouseOnTheHighway",
+      "email": "littlehouseonthehighway@gmail.com",
       "password": "123",
-      "aboutMe": "My skoolie is awesome! So awesome! yes",
-      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/profileImage%2FChristian?alt=media&token=156a0dc7-7879-44d3-8aab-ee4a80b644d7"
+      "aboutMe": "Just a couple and their baby traveling the country!",
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/profileImage%2FLittleHouseOnTheHighway?alt=media&token=50a0fb9f-c4ae-479c-bc80-a22f3ea29f27",
+      "id": 2
     },
     {
-      "id": 3,
-      "username": "SherBear",
-      "email": "sher@gmail.com",
+      "username": "HighFiveSloth",
+      "email": "highfivesloth@gmail.com",
       "password": "123",
-      "aboutMe": "It is awesome! lksdnla;wk .   \n\n\nyoyo\n\n\nyoyoyoy",
-      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/profileImage%2FSherBear?alt=media&token=0cf7ec0d-3e39-4096-ae17-aa86076daba9"
+      "aboutMe": "💑 Travis & Destoni\nFull time traveling skoolie dwellers\n📋 www.slothhighfive.com",
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/profileImage%2FHighFiveSloth?alt=media&token=f89d79b6-1ba1-49e3-87e2-c337ec8909cc",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "username": "HomeIsWhereWeWander",
+      "email": "homeiswherewewander@gmail.com",
+      "password": "123",
+      "aboutMe": "B R Y A N T & H I L L A R Y\nBryant, Hillary & 5 kids go from farm life to freedom. \nA family of seven moves onto a 40’ skoolie to live the vanlife dream.",
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/profileImage%2FHomeIsWhereWeWander?alt=media&token=19024ca7-640b-4803-b515-f99573f88958"
     }
   ],
   "hangouts": [
     {
-      "hangoutName": "nss",
-      "address": "301 Plus Park Boulevard, Nashville, TN, USA",
-      "latitude": 36.1277094,
-      "longitude": -86.7260018,
-      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Fnss?alt=media&token=bfa0f57f-6a90-4024-bc9d-f9b2519e3e31",
+      "hangoutName": "Stewards Point",
+      "address": "Stewarts Point, Lake Mead National Recreation Area, Nevada, USA",
+      "latitude": 36.3805337,
+      "longitude": -114.40775429999997,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2FStewards%20Point?alt=media&token=f2298e5a-774f-42d8-9b10-43ead80b3c19",
       "id": 1
     },
     {
-      "hangoutName": "my house",
-      "address": "921 Anita Drive, Old Hickory, TN, USA",
-      "latitude": 36.2617358,
-      "longitude": -86.66557469999998,
-      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Fmy%20house?alt=media&token=2821ae98-2fca-42ba-8ad0-b3b56a483ccd",
+      "hangoutName": "Sand Hollow",
+      "address": "Sand Hollow Reservoir, Utah, USA",
+      "latitude": 37.1138288,
+      "longitude": -113.37342360000002,
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2FSand%20Hollow?alt=media&token=129e00aa-4480-4ff8-aaf0-48cf21284029",
       "id": 2
-    },
-    {
-      "hangoutName": "jakes house",
-      "address": "911 Airport Center Drive, Nashville, TN, USA",
-      "latitude": 36.1462784,
-      "longitude": -86.66343010000003,
-      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Fjakes%20house?alt=media&token=112108c6-64b9-4c92-872a-46f5ddcd3c69",
-      "id": 3
-    },
-    {
-      "hangoutName": "sam",
-      "address": "321 Mcmillin Street, Nashville, TN, USA",
-      "latitude": 36.158949,
-      "longitude": -86.7958547,
-      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Fsam?alt=media&token=780b2c54-6822-40d9-9274-a4488a580e19",
-      "id": 4
-    },
-    {
-      "hangoutName": "lake",
-      "address": "Old Hickory Lake, Tennessee, USA",
-      "latitude": 36.3171793,
-      "longitude": -86.4819637,
-      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/hangoutImage%2Flake?alt=media&token=0b82c923-ff2b-48d4-a282-263a0b9f84b6",
-      "id": 5
     }
   ],
   "reviews": [
     {
-      "userId": 3,
+      "userId": 4,
       "hangoutId": 1,
-      "restrictions": "great",
-      "review": "hello",
-      "date": 1565195948114,
+      "restrictions": "Boondocking. 14 day limit",
+      "review": "One of our favorite spots! So beautiful here!",
+      "date": 1565284814883,
       "id": 1
-    },
-    {
-      "id": 4,
-      "userId": 3,
-      "hangoutId": 1,
-      "restrictions": "ljkblb!!!",
-      "review": "kjbkb",
-      "date": 1565223174554
     }
   ],
-  "didVisits": [
-    {
-      "userId": 3,
-      "hangoutId": 2,
-      "didVisit": true,
-      "id": 2
-    },
-    {
-      "id": 3,
-      "userId": 3,
-      "hangoutId": 3,
-      "didVisit": true
-    },
-    {
-      "id": 5,
-      "userId": 3,
-      "hangoutId": 5,
-      "didVisit": true
-    },
-    {
-      "userId": 3,
-      "hangoutId": 1,
-      "didVisit": false,
-      "id": 6
-    },
-    {
-      "userId": 3,
-      "hangoutId": 4,
-      "didVisit": false,
-      "id": 7
-    }
-  ]
+  "didVisits": []
 }

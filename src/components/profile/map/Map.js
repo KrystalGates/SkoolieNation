@@ -37,8 +37,8 @@ export default class Map extends Component {
     return (
       this.state.popupInfo && (
         <Popup
-          tipSize={5}
-          anchor="bottom-right"
+          // tipSize={5}
+          // anchor="bottom-right"
           longitude={marker.hangout.longitude}
           latitude={marker.hangout.latitude}
           onMouseLeave={() => this.setState({ popupInfo: null })}

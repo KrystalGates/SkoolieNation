@@ -60,7 +60,7 @@ export default class HangoutReview extends Component {
               style={{ background: "#8EE48F", boxShadow: "none" }}
             >
               <Image style={{marginBottom: "1em"}} rounded src={this.state.hangout.imgUrl} />
-              <Card.Header style={{ fontWeight: "bold", fontSize: "3em" }}>
+              <Card.Header style={{ fontWeight: "bold", fontSize: "2em" }}>
                 {this.state.hangout.hangoutName}
               </Card.Header>
               <Card.Description style={{marginTop: "1em"}}>{this.state.hangout.address}</Card.Description>
