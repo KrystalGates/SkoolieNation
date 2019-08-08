@@ -161,6 +161,12 @@
       "hangoutId": 1,
       "didVisit": false,
       "id": 8
+    },
+    {
+      "id": 9,
+      "userId": 3,
+      "hangoutId": 6,
+      "didVisit": true
     }
   ]
 }

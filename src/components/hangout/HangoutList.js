@@ -3,7 +3,6 @@ import _ from "lodash";
 import { Header, Container, Button, Search, Card } from "semantic-ui-react";
 import HangoutForm from "./HangoutForm";
 import HangoutCard from "./HangoutCard";
-import { when } from "q";
 
 const initialState = {
   modalOpen: false,
