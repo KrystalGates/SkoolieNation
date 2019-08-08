@@ -75,15 +75,17 @@
       "review": "hello",
       "date": 1565195948114,
       "id": 1
+    },
+    {
+      "id": 4,
+      "userId": 3,
+      "hangoutId": 1,
+      "restrictions": "ljkblb!!!",
+      "review": "kjbkb",
+      "date": 1565223174554
     }
   ],
   "didVisits": [
-    {
-      "userId": 3,
-      "hangoutId": 1,
-      "didVisit": true,
-      "id": 1
-    },
     {
       "userId": 3,
       "hangoutId": 2,
@@ -91,22 +93,28 @@
       "id": 2
     },
     {
+      "id": 3,
       "userId": 3,
       "hangoutId": 3,
+      "didVisit": true
+    },
+    {
+      "id": 5,
+      "userId": 3,
+      "hangoutId": 5,
+      "didVisit": true
+    },
+    {
+      "userId": 3,
+      "hangoutId": 1,
       "didVisit": false,
-      "id": 3
+      "id": 6
     },
     {
       "userId": 3,
       "hangoutId": 4,
       "didVisit": false,
-      "id": 4
-    },
-    {
-      "userId": 3,
-      "hangoutId": 5,
-      "didVisit": false,
-      "id": 5
+      "id": 7
     }
   ]
 }

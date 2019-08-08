@@ -6,7 +6,7 @@ import {
     Image,
     Menu
   } from "semantic-ui-react"
-import bus from "./bus.svg"
+import busIcon from "./busIcon.png"
 
 
 export default class NavBar extends Component {
@@ -20,7 +20,7 @@ handleLogout = (event)=>{
         <Menu >
             <Container>
                 <Menu.Item  style={{color: "#EDF5D1"}}as={Link} to="/" header>
-                <Image size="mini" src={bus} style={{ marginRight: "1.5em" }} />Skoolie Nation
+                <Image size="mini" src={busIcon} style={{ marginRight: "1.5em" }} />Skoolie Nation
                 </Menu.Item>
                     <Menu.Item style={{color: "#EDF5D1"}} as={Link} to="/hangouts">Hangouts</Menu.Item>
                     <Menu.Item style={{color: "#EDF5D1"}} header position ="right" as={Link} onClick={this.handleLogout} to="/login">Logout</Menu.Item>

@@ -11,8 +11,8 @@ import AboutMeEdit from "./AboutMe/AboutMeEdit";
 import VisitedDestination from "./destinations/VisitedDestination";
 import DesiredDestination from "./destinations/DesiredDestination";
 import Map from "./map/Map.js";
-import location from "./map/location.svg";
-import locationPin from "./map/locationPin.svg";
+import desired from "./map/desired.png"
+import visited from "./map/visited.png"
 
 export default class Profile extends Component {
   state = {
@@ -36,21 +36,20 @@ export default class Profile extends Component {
           <Grid.Row>
 
           {this.props.user.map(userinfo => (
-            // <Container key={userinfo.id}>
             <React.Fragment>
-              <Grid.Column style={{ width: "35%"}}>
+              <Grid.Column style={{ width: "45%"}}>
                 <Segment style={{border: "none", boxShadow: "none"}}>
-                  <Header>{userinfo.username}</Header>
+                  <Header style={{fontSize: "3em"}}>{userinfo.username}</Header>
                   <Image
                     src={userinfo.imgUrl}
-                    size="medium"
+                    size="large"
                     rounded
 
                   />
                 </Segment>
                 <Segment style={{border: "none", boxShadow: "none"}}>
-                  <Header>About My Skoolie</Header>
-                  <div style={{ whiteSpace: "pre" }}>{userinfo.aboutMe} </div>
+                  <Header style={{fontSize: "2em"}}>About My Skoolie</Header>
+                  <div style={{ whiteSpace: "pre", marginBottom: "1em" }}>{userinfo.aboutMe} </div>
                   <Button
                     content="Edit"
                     icon="signup"
@@ -73,33 +72,31 @@ export default class Profile extends Component {
                 </Segment>
               </Grid.Column>
               <Grid.Column>
-                <div>
-                  <Header>Your Destinations</Header>
+                <div style={{marginTop: "1em"}}>
+                  <Header style={{fontSize: "2em"}}>Your Destinations</Header>
                   <Map
                     userDesiredVisit={this.props.userDesiredVisit}
                     userVisited={this.props.userVisited}
                   />
                 </div>
               </Grid.Column>
-            {/* // </Container> */}
             </React.Fragment>
           ))}
            </Grid.Row>
         </Grid>
-<Grid columns={2}>
+<Grid columns={2} style={{marginTop: "1em"}}>
   <Grid.Column>
 
         <List style={{marginLeft: "10em"}}>
-          <Header>
+          <Header style={{fontSize: "2em"}}>
             Desired Destination
             <Image
-              size="mini"
-              src={location}
+              src={desired}
               style={{ marginRight: "1.5em" }}
             />
           </Header>
           {this.props.userDesiredVisit.map(visit => (
-            <DesiredDestination
+            <DesiredDestination {...this.props}
               visit={visit}
               key={visit.id}
               deleteVisitFromApi={this.props.deleteVisitFromApi}
@@ -111,16 +108,15 @@ export default class Profile extends Component {
   <Grid.Column>
 
         <List style={{marginLeft: "10em"}}>
-          <Header>
+          <Header style={{fontSize: "2em"}}>
             Visited Destinations{" "}
             <Image
-              size="mini"
-              src={locationPin}
+              src={visited}
               style={{ marginRight: "1.5em" }}
             />
           </Header>
           {this.props.userVisited.map(visit => (
-            <VisitedDestination
+            <VisitedDestination {...this.props}
               visit={visit}
               key={visit.id}
               deleteVisitFromApi={this.props.deleteVisitFromApi}
