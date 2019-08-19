@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactMapGL, { NavigationControl, Marker, Popup } from "react-map-gl";
+import ReactMapGL, { NavigationControl, Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { TOKEN } from "../../../config/mapbox";
 import "./map.css";
@@ -21,34 +21,8 @@ export default class Map extends Component {
       pitch: 0,
       width: "100%",
       height: 600
-    },
-    popupInfo: null
+    }
   };
-
-  showDetails = () => {
-    this.setState({ popupInfo: true });
-  };
-
-  hideDetails = () => {
-    this.setState({ popupInfo: null });
-  };
-
-  renderPopup(marker) {
-    return (
-      this.state.popupInfo && (
-        <Popup
-          // tipSize={5}
-          // anchor="bottom-right"
-          longitude={marker.hangout.longitude}
-          latitude={marker.hangout.latitude}
-          onMouseLeave={() => this.setState({ popupInfo: null })}
-          closeOnClick={true}
-        >
-          <p>{marker.hangout.hangoutName}</p>
-        </Popup>
-      )
-    );
-  }
 
   render() {
     const { viewport } = this.state;
@@ -75,10 +49,7 @@ export default class Map extends Component {
                 <div
                   key={marker.hangout.id}
                   className="mapMarkerStyleVisited"
-                  onMouseEnter={() => this.setState({ popupInfo: true })}
-                  onMouseLeave={() => this.setState({ popupInfo: null })}
                 />
-                {this.renderPopup(marker)}
               </Marker>
             );
           })}
@@ -94,10 +65,7 @@ export default class Map extends Component {
                   <div
                     key={marker.hangout.id}
                     className="mapMarkerStyleDesired"
-                    onMouseEnter={() => this.setState({ popupInfo: true })}
-                    onMouseLeave={() => this.setState({ popupInfo: null })}
                   />
-                  {this.renderPopup(marker)}
                 </Marker>
               </div>
             );

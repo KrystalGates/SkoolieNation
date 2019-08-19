@@ -1,68 +1,112 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Skoolie Nation
 
-## Available Scripts
+Welcome to Skoolie Nation! It is a social platform that allows skoolie owners to add hangouts they've taken their skoolie, review them, and allows other users to review them. A user can also add destinations to their profile catagorized by places you have been or want to visit that appear as markers on a map. Users can also view other users profiles. I hopeyou enjoy my application!
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+These instructions will get you a copy of the project up and runnning on your local machine.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installing
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+First. you'll need to clone down the repo into a directory. open your terminal and enter
 
-### `npm test`
+```
+git clone git@github.com:KrystalGates/SkoolieNation.git
+```
+Next, enter in the terminal
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+mkdir SkoolieNation/src/config
 
-### `npm run build`
+touch SkoolieNation/src/congif/firebase.js
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+touch SkoolieNation/src/congif/mapbox.js.js
+```
+Then you can install all the modules. Make sure you are in the SkoolieNation directory and enter into the terminal
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Then enter into the terminal
 
-### `npm run eject`
+```
+npm start
+```
+The next thing to do is run your json-server. In the terminal, run the following command
+```
+json-server -p 5002 -w skoolieNation.json
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+After that, open up your editor.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Next you will need to create a project on [Firebase](https://console.firebase.google.com/) with the name Skoolie Nation. Once the project has been made you will click on storage on the side bar then create two folders:
+ ```
+ hangoutImage
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ profileImage
+ ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+ Then you will click on the rules tab at the top and make sure the text matches this
 
-## Learn More
+ ```
+ rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write;
+    }
+  }
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Then copy and paste the key into your firebase.js file.
+It should look like this
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+export const firebaseConfig = {
+  apiKey: "YOUR_API_KEY_HERE",
+  authDomain: "YOUR_DOMAIN_HERE",
+  databaseURL: "YOUR_DATABASE_URL_HERE",
+  projectId: "YOUR_PROJECT_ID_HERE",
+  storageBucket: "YOUR_STORAGE_BUCKET_HERE",
+  messagingSenderId: "YOUR_MESSAGING_ID",
+  appId: "YOUR_APP_ID"
+};
+```
 
-### Code Splitting
+Next, your will create an API key on [Mapbox](mapbox.com). Copy and paste your API key into your mapbox.js file.
+It should look like this:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```
+export const TOKEN="YOUR_API_KEY_HERE"
+```
 
-### Analyzing the Bundle Size
+You will need to create your last API key [Google Maps API](https://developers.google.com/maps/documentation/).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+You will insert the API key on your index.html file in the header. It should look like this
 
-### Making a Progressive Web App
+```
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&libraries=places"></script>
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+###### You are now ready to use Skoolie Nation!
 
-### Advanced Configuration
+## First Time User instructions
+* The first thing you have to do is register as new user otherwise you will not be able to use Skoolie Nation
+* Once registered, you are now able to use the application
+* At this point, you can explore the application. If you click on the Hangouts tab you can add a hangout, add them to your map, add a review, and read others reviews.
+* You can also see other peoples profiles by clicking on their picture on their reviews.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### I hope you enjoyed my app!
 
-### Deployment
+## Built With
+* [React](https://reactjs.org/) - Framework
+* [Semantic UI React 0.87.3](https://react.semantic-ui.com/collections/grid/) - Used for styling
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+
