@@ -21,7 +21,7 @@
       "username": "HighFiveSloth",
       "email": "highfivesloth@gmail.com",
       "password": "123",
-      "aboutMe": "💑 Travis & Destoni\nFull time traveling skoolie dwellers!\n📋 www.slothhighfive.com",
+      "aboutMe": "💑 Travis & Destoni\nFull time traveling skoolie dwellers!!!! Getting it!!\n📋 www.slothhighfive.com",
       "imgUrl": "https://firebasestorage.googleapis.com/v0/b/skoolie-nation-1563547509997.appspot.com/o/profileImage%2FHighFiveSloth?alt=media&token=f89d79b6-1ba1-49e3-87e2-c337ec8909cc"
     },
     {
@@ -75,7 +75,7 @@
       "id": 5
     },
     {
-      "hangoutName": "Yellow Stone Grizzly RV Park",
+      "hangoutName": "Yellow Stone RV Park",
       "address": "210 S Electric St, West Yellowstone, MT 59758, USA",
       "latitude": 44.65620699999999,
       "longitude": -111.10756609999999,
@@ -123,6 +123,14 @@
       "restrictions": "Can't have yellow school bus!",
       "review": "They require you to paint your bus but other \nthen that we had a great time! The views and \nsunset are gorgeous!",
       "date": 1565292432221
+    },
+    {
+      "userId": 3,
+      "hangoutId": 1,
+      "restrictions": "fee",
+      "review": "was awesome",
+      "date": 1565398102549,
+      "id": 6
     }
   ],
   "didVisits": [
@@ -151,22 +159,22 @@
       "id": 5
     },
     {
-      "userId": 3,
-      "hangoutId": 3,
-      "didVisit": true,
-      "id": 6
-    },
-    {
+      "id": 8,
       "userId": 3,
       "hangoutId": 1,
-      "didVisit": false,
-      "id": 8
+      "didVisit": true
     },
     {
       "id": 9,
       "userId": 3,
       "hangoutId": 6,
       "didVisit": true
+    },
+    {
+      "userId": 3,
+      "hangoutId": 3,
+      "didVisit": false,
+      "id": 10
     }
   ]
 }

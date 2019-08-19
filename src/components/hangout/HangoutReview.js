@@ -43,8 +43,6 @@ export default class HangoutReview extends Component {
   };
 
   render() {
-    console.log(this.state.hangout)
-    console.log(this.state.reviews)
     return (
       <Grid columns={2}>
         <Grid.Column style={{ width: "10%", marginLeft: "2em" }}>

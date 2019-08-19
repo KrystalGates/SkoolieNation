@@ -20,23 +20,11 @@ export default class Profile extends Component {
     modalOpen: false
   };
 
-  btnEnabled = () => {
+  editBtnEnabled = () => {
     let currentUser = parseInt(sessionStorage.getItem("currentUser"));
-    let str = false;
-    if (this.props.user.id === currentUser) {
-      str = true;
-    }
-    return str;
+    let findUser = this.props.user.map(user => (user.id === currentUser))
+    return findUser[0];
   };
-
-  // componentDidMount() {
-  //   let currentUser = this.props.user.filter(
-  //     user => user.id === sessionStorage.getItem("currentUser")
-  //   );
-  //   if (currentUser === 0) {
-  //     this.setState({ editEnabled: true });
-  //   }
-  // }
 
   render() {
     return (
@@ -64,7 +52,7 @@ export default class Profile extends Component {
                     icon="signup"
                     size="tiny"
                     style={{
-                      display: !this.btnEnabled() ? "block" : "none"
+                      display: this.editBtnEnabled() ? "block" : "none"
                     }}
                     onClick={() => {
                       this.setState({ modalOpen: true });
